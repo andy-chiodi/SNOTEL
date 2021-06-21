@@ -4,7 +4,7 @@ function [obs_mean,p,sig95,l,ne] = boot(year,data,eyrs)
 
 %yen  = [1983 1987 1992 1998 2016];
 %ynen = [1988 1995 2003 2005 2007 2010 ] ;
-%yln = [1989 1999 2000 2011]
+%yln = [1989 1999 2000 2011 2020]
 %ynln = [1985 1996 2001 2008 2012]
 
 ie = ytoi(eyrs,year);

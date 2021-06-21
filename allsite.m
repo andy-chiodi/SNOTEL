@@ -1,3 +1,5 @@
+% this script loads the .dat data files from the 19 snotel time series listed below,
+% plots the data, and calculates composite-average statistics for the years listed as OLR El Nino/La Nina and non-OLR El Nino/La Nina
 clear
 sta1 ='blewitt_pass'  
 sta2 ='corral_pass'

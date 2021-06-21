@@ -3,7 +3,11 @@ function [enm,noenm,lnm,nolnm,mn,stdev,ret,yr1] = tseries(nm)
 % enm =  olr el nino mean
 % noenm = non-OLR el nino mean
 % lnm = olr la nina mean
-
+% nolnm = non-OLR La Nina mean
+% mn = overall time series mean
+% stdev = time series standard deviation
+% ret = data returned as [year(:) data(:)]
+% y1 = first year of data
 
 a = nm
 b = 'load ';
