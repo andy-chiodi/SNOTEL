@@ -16,7 +16,7 @@ def is_number(s):
 def main():
 # read and open the input file  
   input1 = sys.argv[1]
-  print input1
+  print(input1)
   myfile = open(input1,'r')
 # march through lines and if first 4 characters evaluate as a float, then...
   fn=input1.strip( '.txt' );
@@ -29,7 +29,7 @@ def main():
 # use that empty returns false to replace with bad value=-99.9
            sep2 = [-99.9 if not v else v for v in sep]
            myl = sep2
-           print sep2[0],sep2[2],sep2[3],sep2[5],sep2[6],sep2[8],sep2[9],sep2[11],sep2[12],sep2[14],sep2[15],sep2[17],sep2[18].rstrip()
+           print(sep2[0],sep2[2],sep2[3],sep2[5],sep2[6],sep2[8],sep2[9],sep2[11],sep2[12],sep2[14],sep2[15],sep2[17],sep2[18].rstrip())
 # delete list item 1 through 16 by 3
            del myl[1:19:3] 
            outfile.write(' '.join(map(str,myl))) 

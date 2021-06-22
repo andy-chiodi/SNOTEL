@@ -1,0 +1,99 @@
+#------------------------------------------------- WARNING --------------------------------------------
+# 
+# The data you have obtained from this automated Natural Resources Conservation Service 
+# database are subject to revision regardless of indicated Quality Assurance level. 
+# Data are released on condition that neither the NRCS nor the United States Government 
+# may be held liable for any damages resulting from its use. 
+# 
+# Help and Tutorials: https://www.nrcs.usda.gov/wps/portal/wcc/home/dataAccessHelp/helpCenters/reportGeneratorHelp/
+# 
+# Support Contact: usdafpacbc@servicenowservices.com
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Reporting Frequency: Monthly
+# Date Range: Period of Record
+# Report Instantaneous Data As: Start of Month
+#
+# Data for the following site(s) are contained in this file:
+#
+#	SNOTEL 420: Cougar Mountain, WA
+# 
+# Data items provided in this file:
+#
+# Element Name           Value Type       Function Type  Function Duration               Base Data  Measurement Units  Sensor Depth  Element Code  Description                                                                                        
+# Snow Water Equivalent  Collection date  None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# Snow Depth             Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           SNWD          Total snow depth                                                                                   
+# Snow Water Equivalent  Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# 
+# Quality Control flags included:
+#
+# Flag    Name                Description
+#  V      Valid               Validated Data
+#  N      No Profile          No profile for automated validation
+#  E      Edit                Edit, minor adjustment for sensor noise
+#  B      Back Estimate       Regression-based estimate for homogenizing collocated Snow Course and Snow Pillow data sets
+#  K      Estimate            Estimate
+#  X      External Estimate   External estimate
+#  S      Suspect             Suspect data
+# 
+# Quality Assurance flags included:
+#
+# Flag    Name                Description
+#  U      Unknown             Unknown
+#  R      Raw                 No Human Review
+#  P      Provisional         Preliminary Human Review
+#  A      Approved            Processing and Final Review Completed
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Cougar Mountain (420) 
+# Washington  SNOTEL Site - 3200 ft
+# Reporting Frequency: Monthly; Date Range: Period of Record
+#
+# As of: Jun 21, 2021 5:43:42 PM GMT-08:00
+#
+Water Year,Jan,Jan,Jan,Feb,Feb,Feb,Mar,Mar,Mar,Apr,Apr,Apr,May,May,May,Jun,Jun,Jun
+,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values
+1980,,,,,,10.4,,,8.1,,,15.2,,,,,,
+1981,,,,,,3.8,,,1.5,,,4.7,,,,,,
+1982,,,12.1,,,23.0,,,23.5,,,26.4,,,22.4,,,0.0
+1983,,,4.9,,,6.0,,,5.3,,,1.1,,,0.0,,,0.0
+1984,,,14.5,,,11.0,,,14.6,,,14.1,,,15.8,,,0.0
+1985,,,19.8,,,21.5,,,29.9,,,34.9,,,23.8,,,0.0
+1986,,,6.7,,,10.7,,,12.4,,,5.2,,,1.5,,,0.0
+1987,,,7.0,,,16.3,,,18.3,,,15.1,,,0.0,,,0.0
+1988,,,6.8,,,10.7,,,12.3,,,20.6,,,12.7,,,0.0
+1989,,,6.3,,,18.8,,,25.1,,,32.3,,,16.3,,,0.0
+1990,,,2.8,,,12.6,,,21.6,,,19.9,,,4.4,,,0.0
+1991,,,10.4,,,13.5,,,9.1,,,16.1,,,14.1,,,0.0
+1992,,,4.8,,,3.2,,,0.0,,,0.0,,,0.0,,,0.0
+1993,,,14.7,,,17.3,,,15.8,,,10.1,,,0.0,,,0.0
+1994,,,3.5,,,2.7,,,10.2,,,8.8,,,0.0,,,0.0
+1995,,,13.8,,,13.8,,,10.9,,,5.0,,,0.0,,,0.0
+1996,,,4.4,,,10.9,,,9.1,,,6.6,,,0.0,,,0.0
+1997,,,22.1,,,25.3,,,30.8,,,37.8,,,30.2,,,0.0
+1998,,,5.0,,,13.1,,,15.6,,,14.0,,,0.6,,,0.0
+1999,,,6.9,,,15.1,,,25.6,,,26.8,,,24.0,,,12.3
+2000,,,3.5,,,14.4,,,15.5,,,20.2,,,7.5,,,0.0
+2001,,,5.1,,,7.4,,,10.2,,,13.2,,,10.0,,,0.0
+2002,,,11.0,,,17.1,,,21.2,,,31.7,,,26.6,,,11.3
+2003,,18,3.1,,0,0.0,,14,3.6,,15,5.6,,4,1.1,,0,0.0
+2004,,30,7.7,,32,10.3,,36,14.1,,28,12.0,,0,0.0,,0,0.0
+2005,,5,1.5,,0,0.0,,0,0.0,,7,1.5,,0,0.0,,0,0.0
+2006,,21,3.0,,55,13.8,,62,19.7,,61,22.0,,37,10.0,,0,0.0
+2007,,31,10.7,,38,14.6,,57,17.0,,28,12.8,,8,4.4,,0,0.0
+2008,,45,12.7,,87,24.0,,72,34.4,,101,41.5,,94,44.7,,38,20.7
+2009,,44,11.3,,31,13.7,,38,15.2,,90,29.6,,60,28.7,,5,3.0
+2010,,8,2.9,,4,1.5,,0,0.0,,6,1.2,,2,1.0,,0,0.0
+2011,,28,7.8,,14,5.0,,51,9.7,,39,15.4,,62,24.4,,25,11.7
+2012,,17,5.1,,31,13.5,,51,17.3,,64,27.3,,38,19.1,,0,0.0
+2013,,42,10.3,,53,17.5,,56,23.0,,47,23.3,,45,20.9,,0,0.0
+2014,,0,0.0,,3,0.8,,32,10.3,,23,9.9,,1,0.5,,0,0.0
+2015,,7,2.0,,0,0.0,,0,0.0,,0,0.0,,0,0.0,,0,0.0
+2016,,43,13.8,,34,14.8,,19,10.1,,22,10.7,,0,0.0,,0,0.0
+2017,,35,11.4,,32,12.4,,58,18.9,,47,21.6,,31,15.7,,0,0.0
+2018,,10,3.5,,18,5.2,,38,10.7,,32,12.4,,9,4.2,,0,0.0
+2019,,14,3.7,,4,1.6,,31,9.7,,11,5.1,,0,0.0,,0,0.0
+2020,,5,1.8,,16,7.0,,35,13.2,,50,17.0,,12,6.0,,0,0.0
+2021,,11,3.8,,10,3.3,,50,16.6,,44,20.5,,23,10.9,,0,0.0

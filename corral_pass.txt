@@ -1,0 +1,99 @@
+#------------------------------------------------- WARNING --------------------------------------------
+# 
+# The data you have obtained from this automated Natural Resources Conservation Service 
+# database are subject to revision regardless of indicated Quality Assurance level. 
+# Data are released on condition that neither the NRCS nor the United States Government 
+# may be held liable for any damages resulting from its use. 
+# 
+# Help and Tutorials: https://www.nrcs.usda.gov/wps/portal/wcc/home/dataAccessHelp/helpCenters/reportGeneratorHelp/
+# 
+# Support Contact: usdafpacbc@servicenowservices.com
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Reporting Frequency: Monthly
+# Date Range: Period of Record
+# Report Instantaneous Data As: Start of Month
+#
+# Data for the following site(s) are contained in this file:
+#
+#	SNOTEL 418: Corral Pass, WA
+# 
+# Data items provided in this file:
+#
+# Element Name           Value Type       Function Type  Function Duration               Base Data  Measurement Units  Sensor Depth  Element Code  Description                                                                                        
+# Snow Water Equivalent  Collection date  None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# Snow Depth             Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           SNWD          Total snow depth                                                                                   
+# Snow Water Equivalent  Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# 
+# Quality Control flags included:
+#
+# Flag    Name                Description
+#  V      Valid               Validated Data
+#  N      No Profile          No profile for automated validation
+#  E      Edit                Edit, minor adjustment for sensor noise
+#  B      Back Estimate       Regression-based estimate for homogenizing collocated Snow Course and Snow Pillow data sets
+#  K      Estimate            Estimate
+#  X      External Estimate   External estimate
+#  S      Suspect             Suspect data
+# 
+# Quality Assurance flags included:
+#
+# Flag    Name                Description
+#  U      Unknown             Unknown
+#  R      Raw                 No Human Review
+#  P      Provisional         Preliminary Human Review
+#  A      Approved            Processing and Final Review Completed
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Corral Pass (418) 
+# Washington  SNOTEL Site - 5800 ft
+# Reporting Frequency: Monthly; Date Range: Period of Record
+#
+# As of: Jun 21, 2021 3:39:19 PM GMT-08:00
+#
+Water Year,Jan,Jan,Jan,Feb,Feb,Feb,Mar,Mar,Mar,Apr,Apr,Apr,May,May,May,Jun,Jun,Jun
+,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values
+1980,,,,,,19.2,,,22.7,,,28.5,,,25.5,,,
+1981,,,,,,10.5,,,16.5,,,21.1,,,20.9,,,
+1982,,,16.8,,,30.3,,,38.5,,,41.3,,,42.0,,,32.0
+1983,,,15.1,,,24.8,,,28.6,,,29.0,,,19.1,,,0.3
+1984,,,12.7,,,8.6,,,5.5,,,8.2,,,8.1,,,0.3
+1985,,,11.7,,,11.5,,,15.9,,,23.9,,,29.8,,,18.0
+1986,,,13.7,,,21.1,,,28.6,,,33.1,,,35.4,,,24.8
+1987,,,16.6,,,24.1,,,27.8,,,33.4,,,32.4,,,12.8
+1988,,,14.5,,,21.8,,,26.3,,,37.1,,,37.6,,,28.1
+1989,,,15.6,,,26.3,,,29.9,,,39.3,,,36.9,,,26.9
+1990,,,4.7,,,23.0,,,35.5,,,39.7,,,37.0,,,31.4
+1991,,,16.2,,,21.8,,,26.9,,,33.6,,,40.1,,,33.1
+1992,,,15.3,,,23.6,,,27.5,,,28.5,,,27.7,,,1.5
+1993,,,16.4,,,21.0,,,21.5,,,26.0,,,31.6,,,11.7
+1994,,,7.6,,,12.9,,,21.9,,,26.6,,,24.7,,,12.5
+1995,,,22.8,,,27.5,,,30.2,,,34.6,,,37.8,,,20.9
+1996,,,11.9,,,21.2,,,27.6,,,31.1,,,33.9,,,28.8
+1997,,,31.1,,,39.9,,,48.0,,,55.3,,,59.5,,,42.6
+1998,,,14.2,,,24.5,,,30.2,,,35.4,,,35.1,,,27.9
+1999,,,21.3,,,31.0,,,42.9,,,51.0,,,53.7,,,49.9
+2000,,,14.9,,,26.4,,,32.2,,,37.9,,,38.0,,,28.8
+2001,,,8.6,,,12.0,,,15.5,,,20.7,,,24.8,,,12.5
+2002,,,19.4,,,29.7,,,33.6,,,42.1,,,46.5,,,36.5
+2003,,,8.8,,,16.2,,,20.9,,,31.3,,,34.9,,,25.2
+2004,,,16.4,,,26.3,,,29.9,,,35.6,,,34.5,,,20.3
+2005,,,8.0,,,7.6,,,8.5,,,12.6,,,13.1,,,0.0
+2006,,,14.6,,,29.6,,,33.7,,,38.5,,,41.0,,,28.0
+2007,,58,17.1,,67,24.2,,96,30.6,,79,33.3,,78,34.9,,53,24.8
+2008,,52,13.6,,85,22.7,,93,32.4,,110,38.6,,106,42.0,,70,31.7
+2009,,57,12.8,,56,20.8,,64,23.5,,118,35.5,,98,39.1,,71,31.9
+2010,,44,12.1,,52,16.2,,62,19.5,,83,25.4,,82,30.8,,73,30.7
+2011,,55,14.8,,58,20.2,,92,26.0,,108,36.9,,123,44.3,,113,47.0
+2012,,50,14.3,,74,24.0,,93,32.0,,128,44.0,,101,44.5,,77,36.5
+2013,,63,18.4,,72,24.3,,81,28.4,,78,31.9,,87,37.6,,62,29.8
+2014,,28,10.1,,53,17.2,,85,28.6,,100,38.8,,103,42.9,,70,31.3
+2015,,39,10.1,,32,11.3,,42,14.1,,42,15.5,,45,17.2,,4,1.6
+2016,,58,15.8,,68,21.7,,78,27.3,,97,35.4,,80,33.0,,44,19.7
+2017,,49,12.0,,49,14.8,,79,23.0,,89,31.4,,98,37.3,,65,27.7
+2018,,,,,,,,,,,,,,,,,,
+2019,,53,18.1,,60,23.4,,90,31.7,,77,35.0,,70,34.7,,0,0.0
+2020,,31,12.0,,78,29.2,,114,44.1,,120,49.6,,83,41.4,,26,11.8
+2021,,51,15.2,,60,21.8,,116,37.4,,105,42.8,,74,38.2,,28,12.5

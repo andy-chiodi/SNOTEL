@@ -1,0 +1,97 @@
+#------------------------------------------------- WARNING --------------------------------------------
+# 
+# The data you have obtained from this automated Natural Resources Conservation Service 
+# database are subject to revision regardless of indicated Quality Assurance level. 
+# Data are released on condition that neither the NRCS nor the United States Government 
+# may be held liable for any damages resulting from its use. 
+# 
+# Help and Tutorials: https://www.nrcs.usda.gov/wps/portal/wcc/home/dataAccessHelp/helpCenters/reportGeneratorHelp/
+# 
+# Support Contact: usdafpacbc@servicenowservices.com
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Reporting Frequency: Monthly
+# Date Range: Period of Record
+# Report Instantaneous Data As: Start of Month
+#
+# Data for the following site(s) are contained in this file:
+#
+#	SNOTEL 699: Pope Ridge, WA
+# 
+# Data items provided in this file:
+#
+# Element Name           Value Type       Function Type  Function Duration               Base Data  Measurement Units  Sensor Depth  Element Code  Description                                                                                        
+# Snow Water Equivalent  Collection date  None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# Snow Depth             Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           SNWD          Total snow depth                                                                                   
+# Snow Water Equivalent  Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# 
+# Quality Control flags included:
+#
+# Flag    Name                Description
+#  V      Valid               Validated Data
+#  N      No Profile          No profile for automated validation
+#  E      Edit                Edit, minor adjustment for sensor noise
+#  B      Back Estimate       Regression-based estimate for homogenizing collocated Snow Course and Snow Pillow data sets
+#  K      Estimate            Estimate
+#  X      External Estimate   External estimate
+#  S      Suspect             Suspect data
+# 
+# Quality Assurance flags included:
+#
+# Flag    Name                Description
+#  U      Unknown             Unknown
+#  R      Raw                 No Human Review
+#  P      Provisional         Preliminary Human Review
+#  A      Approved            Processing and Final Review Completed
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Pope Ridge (699) 
+# Washington  SNOTEL Site - 3590 ft
+# Reporting Frequency: Monthly; Date Range: Period of Record
+#
+# As of: Jun 21, 2021 6:15:24 PM GMT-08:00
+#
+Water Year,Jan,Jan,Jan,Feb,Feb,Feb,Mar,Mar,Mar,Apr,Apr,Apr,May,May,May,Jun,Jun,Jun
+,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values
+1982,,,10.7,,,17.1,,,19.6,,,19.3,,,9.7,,,0.0
+1983,,,10.5,,,14.8,,,18.6,,,16.8,,,1.9,,,0.0
+1984,,,11.6,,,13.2,,,16.3,,,15.7,,,6.8,,,0.0
+1985,,,12.1,,,12.6,,,15.2,,,16.1,,,4.2,,,0.0
+1986,,,7.0,,,14.0,,,17.1,,,13.0,,,0.0,,,0.0
+1987,,,8.2,,,14.6,,,16.6,,,14.1,,,0.0,,,0.0
+1988,,,10.4,,,14.5,,,16.1,,,16.8,,,0.0,,,0.1
+1989,,,8.8,,,11.9,,,15.1,,,16.1,,,0.0,,,0.0
+1990,,,2.8,,,12.8,,,15.6,,,13.7,,,0.0,,,0.0
+1991,,,7.5,,,10.5,,,12.0,,,13.3,,,0.8,,,0.0
+1992,,,9.7,,,14.4,,,16.7,,,10.8,,,0.0,,,0.0
+1993,,,7.8,,,10.9,,,11.4,,,11.8,,,1.9,,,0.0
+1994,,,7.1,,,9.8,,,14.9,,,12.2,,,0.0,,,0.0
+1995,,,14.9,,,21.5,,,24.0,,,25.0,,,14.5,,,0.0
+1996,,,12.2,,,17.0,,,24.8,,,23.9,,,12.7,,,0.0
+1997,,,20.7,,,24.5,,,27.0,,,31.0,,,23.5,,,0.0
+1998,,21,5.6,,58,14.4,,61,18.6,,47,18.8,,17,9.7,,,0.0
+1999,,51,13.6,,69,18.4,,92,28.0,,76,28.5,,46,19.3,,0,0.0
+2000,,25,6.4,,52,12.4,,57,16.3,,50,18.8,,12,5.9,,0,0.0
+2001,,27,5.8,,33,7.9,,38,10.2,,26,10.1,,6,2.4,,0,0.0
+2002,,35,9.0,,48,12.3,,50,15.1,,51,18.0,,14,6.4,,0,0.0
+2003,,36,6.5,,51,14.7,,50,14.9,,42,15.3,,17,7.3,,0,0.0
+2004,,36,8.1,,41,11.1,,46,13.3,,27,10.3,,0,0.0,,0,0.0
+2005,,21,4.5,,23,7.3,,22,7.2,,20,7.1,,0,0.0,,0,0.0
+2006,,46,9.2,,82,19.1,,73,19.8,,66,23.3,,33,13.5,,0,0.0
+2007,,52,12.5,,57,17.0,,68,19.7,,37,15.9,,11,5.3,,0,0.0
+2008,,60,11.2,,70,16.1,,60,18.2,,57,17.1,,37,13.9,,0,0.0
+2009,,41,5.7,,35,9.3,,36,10.3,,41,13.5,,14,7.4,,0,0.0
+2010,,33,6.7,,48,12.5,,53,14.6,,40,13.6,,20,8.8,,0,0.0
+2011,,36,7.5,,33,10.3,,57,12.5,,54,17.9,,38,14.5,,0,0.0
+2012,,34,8.7,,50,15.0,,58,18.5,,58,23.2,,22,9.3,,0,0.0
+2013,,41,10.6,,45,12.7,,50,14.3,,35,13.4,,5,3.6,,0,0.0
+2014,,5,2.2,,18,4.9,,59,15.2,,36,15.8,,9,5.5,,0,0.0
+2015,,24,6.8,,31,9.5,,27,10.2,,1,0.5,,0,0.0,,0,0.0
+2016,,33,9.1,,49,14.6,,40,14.6,,33,14.8,,0,0.0,,0,0.0
+2017,,31,6.5,,36,9.4,,49,14.6,,42,16.5,,10,4.8,,0,0.0
+2018,,28,6.3,,48,14.3,,44,14.5,,29,14.0,,0,0.0,,0,0.0
+2019,,28,6.7,,41,10.6,,51,14.2,,29,11.9,,0,0.0,,0,0.0
+2020,,14,4.1,,35,11.2,,32,12.1,,18,9.6,,0,0.0,,0,0.0
+2021,,36,9.6,,52,16.1,,55,20.4,,35,17.8,,0,0.0,,0,0.0

@@ -1,0 +1,100 @@
+#------------------------------------------------- WARNING --------------------------------------------
+# 
+# The data you have obtained from this automated Natural Resources Conservation Service 
+# database are subject to revision regardless of indicated Quality Assurance level. 
+# Data are released on condition that neither the NRCS nor the United States Government 
+# may be held liable for any damages resulting from its use. 
+# 
+# Help and Tutorials: https://www.nrcs.usda.gov/wps/portal/wcc/home/dataAccessHelp/helpCenters/reportGeneratorHelp/
+# 
+# Support Contact: usdafpacbc@servicenowservices.com
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Reporting Frequency: Monthly
+# Date Range: Period of Record
+# Report Instantaneous Data As: Start of Month
+#
+# Data for the following site(s) are contained in this file:
+#
+#	SNOTEL 606: Lyman Lake, WA
+# 
+# Data items provided in this file:
+#
+# Element Name           Value Type       Function Type  Function Duration               Base Data  Measurement Units  Sensor Depth  Element Code  Description                                                                                        
+# Snow Water Equivalent  Collection date  None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# Snow Depth             Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           SNWD          Total snow depth                                                                                   
+# Snow Water Equivalent  Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# 
+# Quality Control flags included:
+#
+# Flag    Name                Description
+#  V      Valid               Validated Data
+#  N      No Profile          No profile for automated validation
+#  E      Edit                Edit, minor adjustment for sensor noise
+#  B      Back Estimate       Regression-based estimate for homogenizing collocated Snow Course and Snow Pillow data sets
+#  K      Estimate            Estimate
+#  X      External Estimate   External estimate
+#  S      Suspect             Suspect data
+# 
+# Quality Assurance flags included:
+#
+# Flag    Name                Description
+#  U      Unknown             Unknown
+#  R      Raw                 No Human Review
+#  P      Provisional         Preliminary Human Review
+#  A      Approved            Processing and Final Review Completed
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Lyman Lake (606) 
+# Washington  SNOTEL Site - 5980 ft
+# Reporting Frequency: Monthly; Date Range: Period of Record
+#
+# As of: Jun 21, 2021 6:10:09 PM GMT-08:00
+#
+Water Year,Jan,Jan,Jan,Feb,Feb,Feb,Mar,Mar,Mar,Apr,Apr,Apr,May,May,May,Jun,Jun,Jun
+,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values
+1979,,,,,,26.4,,,39.7,,,47.5,,,,,,
+1980,,,25.6,,,36.3,,,45.4,,,55.3,,,56.5,,,36.9
+1981,,,,,,,,,,,,,,,,,,
+1982,,,,,,,,,,,,,,,,,,
+1983,,,,,,,,,,,,,,,,,,
+1984,,,28.0,,,39.4,,,47.8,,,56.5,,,62.6,,,67.5
+1985,,,34.6,,,37.3,,,44.4,,,51.2,,,51.9,,,30.2
+1986,,,17.6,,,32.3,,,43.3,,,48.0,,,52.2,,,37.7
+1987,,,27.1,,,40.4,,,48.2,,,55.6,,,55.5,,,30.0
+1988,,,25.1,,,36.5,,,46.1,,,60.7,,,62.4,,,48.5
+1989,,,27.1,,,43.1,,,49.0,,,60.1,,,61.7,,,42.0
+1990,,,18.4,,,46.3,,,63.3,,,68.1,,,66.6,,,53.9
+1991,,,52.1,,,64.9,,,72.2,,,84.3,,,95.6,,,84.4
+1992,,,28.8,,,48.2,,,56.7,,,57.3,,,54.5,,,23.6
+1993,,,22.4,,,27.8,,,29.3,,,34.6,,,41.4,,,22.8
+1994,,,18.0,,,27.1,,,39.9,,,45.8,,,42.2,,,17.5
+1995,,,42.1,,,54.2,,,64.1,,,75.1,,,80.7,,,54.1
+1996,,,28.1,,,43.1,,,63.0,,,67.1,,,71.1,,,73.0
+1997,,,42.9,,,53.4,,,65.2,,,82.0,,,86.9,,,73.9
+1998,,,26.4,,,46.0,,,58.0,,,64.5,,,68.5,,,49.6
+1999,,,40.4,,,59.0,,,77.6,,,88.5,,,88.6,,,86.2
+2000,,,29.7,,,44.6,,,52.4,,,60.8,,,63.6,,,51.2
+2001,,,15.8,,,19.9,,,26.2,,,34.1,,,36.5,,,21.5
+2002,,,32.9,,,49.2,,,61.7,,,74.2,,,88.3,,,76.9
+2003,,,21.4,,,35.5,,,40.8,,,55.6,,,60.2,,,49.1
+2004,,,18.9,,,25.6,,,31.6,,,41.4,,,33.9,,,12.1
+2005,,,18.4,,,22.0,,,25.6,,,30.8,,,32.0,,,3.8
+2006,,88,22.5,,160,44.7,,164,56.0,,163,65.9,,139,68.8,,90,53.0
+2007,,118,33.0,,129,47.6,,166,58.2,,143,66.8,,133,69.4,,82,48.8
+2008,,109,23.0,,137,35.1,,135,47.3,,160,55.9,,140,57.7,,79,44.8
+2009,,83,16.7,,100,30.1,,106,33.6,,136,43.8,,109,46.5,,75,40.0
+2010,,82,23.3,,113,34.7,,123,41.1,,134,48.6,,131,55.3,,110,55.0
+2011,,81,22.6,,107,34.4,,146,46.4,,190,66.8,,182,74.9,,146,80.5
+2012,,91,25.2,,127,40.3,,156,50.6,,191,66.2,,145,68.5,,103,57.6
+2013,,108,32.2,,122,40.7,,136,47.5,,130,54.4,,130,60.5,,79,47.3
+2014,,51,12.7,,80,23.0,,138,40.3,,156,59.8,,140,65.2,,87,47.5
+2015,,79,21.7,,89,31.6,,103,38.1,,98,41.8,,87,40.0,,24,11.8
+2016,,97,29.9,,134,43.6,,144,54.1,,160,66.3,,111,60.7,,55,32.3
+2017,,109,31.6,,112,38.4,,142,49.3,,169,64.8,,163,73.3,,100,56.7
+2018,,94,24.1,,138,39.4,,161,51.4,,156,60.0,,149,67.6,,71,39.6
+2019,,90,23.0,,98,32.7,,112,38.9,,93,39.2,,86,38.4,,28,10.1
+2020,,65,16.3,,113,32.3,,140,47.6,,142,51.4,,106,49.9,,50,23.0
+2021,,83,21.5,,117,36.0,,193,53.9,,,59.2,,,57.0,,218,34.4

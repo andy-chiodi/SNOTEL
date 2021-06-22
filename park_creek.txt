@@ -1,0 +1,100 @@
+#------------------------------------------------- WARNING --------------------------------------------
+# 
+# The data you have obtained from this automated Natural Resources Conservation Service 
+# database are subject to revision regardless of indicated Quality Assurance level. 
+# Data are released on condition that neither the NRCS nor the United States Government 
+# may be held liable for any damages resulting from its use. 
+# 
+# Help and Tutorials: https://www.nrcs.usda.gov/wps/portal/wcc/home/dataAccessHelp/helpCenters/reportGeneratorHelp/
+# 
+# Support Contact: usdafpacbc@servicenowservices.com
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Reporting Frequency: Monthly
+# Date Range: Period of Record
+# Report Instantaneous Data As: Start of Month
+#
+# Data for the following site(s) are contained in this file:
+#
+#	SNOTEL 681: Park Creek Ridge, WA
+# 
+# Data items provided in this file:
+#
+# Element Name           Value Type       Function Type  Function Duration               Base Data  Measurement Units  Sensor Depth  Element Code  Description                                                                                        
+# Snow Water Equivalent  Collection date  None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# Snow Depth             Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           SNWD          Total snow depth                                                                                   
+# Snow Water Equivalent  Value            None           Instantaneous - Start of Month  N/A        Inches             N/A           WTEQ          Depth of water that would theoretically result if the entire snowpack were melted instantaneously  
+# 
+# Quality Control flags included:
+#
+# Flag    Name                Description
+#  V      Valid               Validated Data
+#  N      No Profile          No profile for automated validation
+#  E      Edit                Edit, minor adjustment for sensor noise
+#  B      Back Estimate       Regression-based estimate for homogenizing collocated Snow Course and Snow Pillow data sets
+#  K      Estimate            Estimate
+#  X      External Estimate   External estimate
+#  S      Suspect             Suspect data
+# 
+# Quality Assurance flags included:
+#
+# Flag    Name                Description
+#  U      Unknown             Unknown
+#  R      Raw                 No Human Review
+#  P      Provisional         Preliminary Human Review
+#  A      Approved            Processing and Final Review Completed
+# 
+#------------------------------------------------------------------------------------------------------
+# 
+# Park Creek Ridge (681) 
+# Washington  SNOTEL Site - 4600 ft
+# Reporting Frequency: Monthly; Date Range: Period of Record
+#
+# As of: Jun 21, 2021 6:13:19 PM GMT-08:00
+#
+Water Year,Jan,Jan,Jan,Feb,Feb,Feb,Mar,Mar,Mar,Apr,Apr,Apr,May,May,May,Jun,Jun,Jun
+,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values,Snow Water Equivalent Collection Date Start of Month Values,Snow Depth (in) Start of Month Values,Snow Water Equivalent (in) Start of Month Values
+1979,,,11.5,,,15.0,,,23.6,,,27.2,,,25.1,,,0.5
+1980,,,20.6,,,33.2,,,41.9,,,46.1,,,37.4,,,3.1
+1981,,,14.8,,,17.1,,,27.7,,,27.2,,,24.8,,,0.5
+1982,,,19.3,,,35.0,,,47.9,,,52.0,,,52.1,,,29.6
+1983,,,17.0,,,31.4,,,40.3,,,48.3,,,43.1,,,13.2
+1984,,,18.0,,,23.8,,,32.6,,,35.3,,,34.7,,,23.9
+1985,,,28.1,,,29.9,,,37.4,,,42.5,,,35.6,,,0.0
+1986,,,13.9,,,29.6,,,36.3,,,37.3,,,31.1,,,0.9
+1987,,,22.1,,,34.0,,,38.6,,,44.4,,,30.9,,,0.0
+1988,,,21.6,,,30.3,,,35.0,,,45.4,,,29.1,,,0.0
+1989,,,20.1,,,32.3,,,38.1,,,49.5,,,42.0,,,7.1
+1990,,,8.3,,,34.3,,,49.7,,,54.8,,,35.8,,,2.6
+1991,,,28.4,,,42.6,,,51.7,,,60.8,,,61.1,,,25.7
+1992,,,23.9,,,41.3,,,47.9,,,41.9,,,26.6,,,0.0
+1993,,,18.0,,,24.7,,,26.1,,,27.6,,,25.6,,,0.0
+1994,,,10.7,,,15.8,,,23.2,,,24.1,,,13.7,,,0.0
+1995,,,23.2,,,33.0,,,35.4,,,40.3,,,35.1,,,6.2
+1996,,,21.6,,,35.3,,,50.6,,,50.6,,,44.8,,,22.1
+1997,,,39.3,,,53.7,,,60.6,,,72.8,,,69.6,,,40.1
+1998,,,16.1,,,33.3,,,40.8,,,44.8,,,33.4,,,0.7
+1999,,,31.0,,,45.5,,,65.9,,,72.1,,,70.2,,,48.2
+2000,,,18.4,,,32.2,,,40.3,,,49.5,,,39.4,,21,11.7
+2001,,42,11.3,,58,17.5,,60,22.9,,64,26.6,,,22.3,,0,0.0
+2002,,76,27.0,,123,43.0,,119,51.4,,133,61.5,,102,57.5,,51,30.8
+2003,,57,12.5,,82,26.7,,79,30.1,,84,40.0,,61,32.4,,9,3.9
+2004,,85,19.5,,91,28.2,,89,34.6,,78,36.2,,34,19.0,,0,0.0
+2005,,34,9.7,,31,12.6,,29,14.5,,49,13.8,,6,2.5,,0,0.0
+2006,,63,17.6,,139,40.7,,135,48.3,,125,55.2,,,46.8,,,17.0
+2007,,101,31.7,,110,44.9,,127,52.4,,102,54.1,,78,45.4,,0,3.5
+2008,,91,23.9,,130,38.1,,116,49.0,,125,54.8,,103,55.4,,30,19.5
+2009,,55,10.0,,58,19.1,,63,22.9,,82,30.3,,58,28.0,,3,2.7
+2010,,66,19.6,,90,31.1,,90,36.6,,92,41.1,,67,34.8,,26,14.4
+2011,,62,16.7,,61,24.1,,97,32.3,,106,48.2,,105,52.3,,57,30.5
+2012,,68,19.9,,101,35.2,,139,45.5,,150,59.1,,108,55.0,,48,28.3
+2013,,86,25.8,,96,35.5,,110,41.1,,87,47.1,,69,37.9,,0,1.6
+2014,,20,7.8,,52,15.3,,110,34.1,,107,48.8,,79,43.7,,14,4.0
+2015,,49,12.0,,57,18.6,,60,22.6,,43,18.6,,15,5.7,,0,0.0
+2016,,75,23.7,,99,37.7,,104,47.0,,111,55.6,,56,31.1,,0,0.0
+2017,,67,16.4,,68,22.8,,,35.2,,115,51.5,,98,45.9,,30,13.7
+2018,,73,17.6,,123,33.8,,110,42.2,,98,48.5,,87,46.1,,0,0.0
+2019,,70,19.9,,79,29.2,,100,34.4,,80,31.2,,40,19.3,,0,0.0
+2020,,43,10.0,,87,33.2,,104,41.1,,90,43.3,,54,30.8,,0,0.0
+2021,,74,19.2,,103,35.3,,136,50.0,,116,56.3,,75,43.8,,13,7.2
