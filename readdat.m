@@ -18,7 +18,7 @@ yr = d(:,1);
 
 y0 = 1981;
 snow = 0;
-for k = 1:35
+for k = 1:40
   snow(k) = -99.9;
   y = y0+k;
   year(k) = y;

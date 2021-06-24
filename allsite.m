@@ -21,7 +21,7 @@ sta17 ='stevens_pass'
 sta18 ='surprise_lakes'
 sta19 ='white_pass'
 
-snow = zeros(19,35)*nan;
+snow = zeros(19,40)*nan;
 
 for k = 1:19
  ks = num2str(k);
@@ -30,7 +30,7 @@ for k = 1:19
  %snow(k,1:19)  = readdat(nm)
  eval([a b]) ;
  d = s(:)';
- snow(k,1:35)=d;
+ snow(k,1:40)=d;
 end
 
 yr = y;
