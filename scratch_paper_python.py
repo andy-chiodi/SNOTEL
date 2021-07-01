@@ -10,7 +10,7 @@ Created on Thu Jun 24 15:09:17 2021
 with open('spencer_meadow.dat') as f:
     print([line.split()[-1] for line in f])
 
-#%% create a file for the means
+#%% cindividual SNOTEL means
 
 """
 blewitt_pass 
@@ -192,4 +192,16 @@ lnm = 27.2600
 nolnm = 23.8400
 mn = 22.4125
 stdev = 7.4027
+"""
+
+#%% results from [obs_mean,p,sig95] = boot(yr,all,[1989 1999 2000 2011 2021])
+  # after running allsite 
+"""
+obs_mean = 45.8389
+
+
+p = 0.9800
+
+
+sig95 = 45.2068   26.2211
 """
