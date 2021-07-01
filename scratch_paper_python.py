@@ -194,7 +194,7 @@ mn = 22.4125
 stdev = 7.4027
 """
 
-#%% results from [obs_mean,p,sig95] = boot(yr,all,[1989 1999 2000 2011 2021])
+#%% results from La Nina [obs_mean,p,sig95] = boot(yr,all,[1989 1999 2000 2011 2021])
   # after running allsite 
 """
 obs_mean = 45.8389
@@ -204,4 +204,14 @@ p = 0.9800
 
 
 sig95 = 45.2068   26.2211
+"""
+#%% results from OLR La Nina[obs_mean,p,sig95] = boot(yr,all,[1985 1996 2001 2008 2012])
+"""
+obs_mean = 38.2387
+
+
+p = 0.6990
+
+
+sig95 = 44.5200   26.8474
 """
