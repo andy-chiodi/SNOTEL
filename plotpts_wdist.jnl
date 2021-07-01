@@ -1,0 +1,134 @@
+! define symbols specifying station lat,lon
+define sym wch "blewitt_pass"  
+define sym lat "47.35"
+define sym lon "120.67"
+! now plot a symbol over the existing map, use symbol #5, plot at x=`360-($lon)`, y=($lat)  the `` tells ferret to
+! evaluate the expression to a number, the ($ ) tells ferret that this is a symbol 
+ plot/ov/vs/sym=5/nolab `360-($lon)` ,($lat)
+
+
+! repeat for other stations
+define sym wch "corral_pass"
+define sym lat "47.01"
+define sym lon "121.46"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+define sym wch "cougar_mountain"
+define sym lat "47.27"
+define sym lon "121.67"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+define sym wch "fish_lake"
+define sym lat "47.53"
+define sym lon "121.08"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+define sym wch "harts_pass"
+define sym lat "48.72"
+define sym lon "120.66"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "lone_pine"
+define sym lat "46.27"
+define sym lon "121.96"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+
+
+define sym wch "lyman_lake"
+define sym lat "48.19"
+define sym lon "120.91"
+
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+define sym wch "ollalie_meadows"
+define sym lat "47.37"
+define sym lon "121.44"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+define sym wch "park_creek"
+define sym lat "48.44"
+define sym lon "120.92"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "pigtail_peak"
+define sym lat "46.62"
+define sym lon "121.39"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+define sym wch "pope_ridge"
+define sym lat "47.99"
+define sym lon "120.57"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "potato_hill"
+define sym lat "46.34"
+define sym lon "121.51"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "rainy_pass"
+define sym lat "48.51"
+define sym lon "120.73"
+
+ plot/ov/vs/sym=5/nolab `360-($lon)` ,($lat)
+
+
+
+define sym wch "sheep_canyon"
+define sym lat "46.19"
+define sym lon "122.25"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "spencer_meadow"
+define sym lat "46.17"
+define sym lon "121.92"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "stampede_pass"
+define sym lat "47.27"
+define sym lon "121.34"
+
+ plot/ov/vs/sym=5/nolab `360-($lon)` ,($lat)
+
+
+define sym wch "stevens_pass"
+define sym lat "47.74"
+define sym lon "121.09"
+
+ plot/ov/vs/sym=3/nolab `360-($lon)` ,($lat)
+
+
+
+define sym wch "surprise_lakes"
+define sym lat "46.09"
+define sym lon "121.76"
+
+ plot/ov/vs/sym=2/nolab `360-($lon)` ,($lat)
+
+define sym wch "white_pass"
+define sym lat "46.64"
+define sym lon "121.38"
+
+ plot/ov/vs/sym=5/nolab `360-($lon)` ,($lat)
+
+
+

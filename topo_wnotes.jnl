@@ -1,0 +1,27 @@
+! to run this in a Ferret session type >> go topo_wnotes
+
+! these two lines just cancel datasets being used and variables that may have been already defined in your session
+! I typically start all my scripts this way unless there is a need to do otherwise  - just gets a clean slate
+can da/all
+can va/all
+
+! Ferret installs with etopo data (try >> use etopo5   to check it out but the smith & sandwell topo data
+! is finer scale.  I downlaoded it from https://coastwatch.pfeg.noaa.gov/erddap/griddap/usgsCeSS111.html
+! the data is global but I subsetted in lat,lon to avoid a larger file
+! >> use name_of_netcdf_file  will load the file into Ferret
+! >> show data    will the list the data sets currently set in Ferret 
+use smith_sandwell_from_coastwatch_erddap.nc
+
+! shade will shade in a 2-d plot in ferret
+! lev is short for level and sets the color scale
+! land.spk is a RGB palette I designed for topo maps
+! looks like I decided to use feet (*3.28)
+! topo is the name of the variable to be plotted in this case  (try >> show data  to see var names)
+! the [x=125w:116w,y=45.25n:49.5n] tells ferret to only plot this area, even if the topo data is larger
+shade/lev=(-inf)(0,8000,500)/pal=land.spk 3.28*topo[x=125w:116w,y=45.25n:49.5n]
+
+! this adds the coastline and state boundaries
+go land_detail black overlay 1 1
+
+! run another ferret .jnl script I wrote
+go plotpts_wdist
