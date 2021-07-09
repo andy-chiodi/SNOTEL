@@ -5,42 +5,128 @@ Created on Thu Jun 24 15:09:17 2021
 
 @author: skilpatrick
 """
+#%%
 
+# are each of the year like the composite mean? if they are then the plot is robust
+# if they're not it's not so great from a prediction perspective
 #%% Ferret installation & activation code
 # to install Ferret in Python environment: conda create -n FERRET -c conda-forge pyferret ferret_datasets --yes
+# to install PyFerret in Python environment: conda create -n FERRET -c conda-forge pyferret ferret_datasets --yes
 # to start using PyFerret: conda activate FERRET
 # to end PyFerret session: conda deactivate
-88
+
 #%% Get last row of each .dat file 
 
 with open('spencer_meadow.dat') as f:
     print([line.split()[-1] for line in f])
 
-#%% cindividual SNOTEL means
+#%% SNOTEL dictionary loaded from 'SNOTEL_means.txt'
+import os 
+#import regex as re
 
-#all19enm = [13.1600, ]
-
-SNOTEL = dict()
-
+path = os.path.abspath('SNOTEL_means.txt')
+#print(path)
 contents = open('SNOTEL_means.txt', 'rt')
 lines = contents.readlines()
+#print(lines[1][-30:-2].strip())
+text = []
+SNOTEL = dict()
 
-text = ''
-station = 1
-
+station = 0
 for line in lines:
+
     if line != '-----------------------------------\n':
-        text += line
+        text.append(line)
+        #print(text)
+    if line == '-----------------------------------\n':
     
-    elif line == '-----------------------------------\n':
-        SNOTEL[station] = text
-        text = ''
-        station += 1
-        print(station)
+        name = text[0].strip()
+        ln = text[1][-30:-2].strip()
+        noln = text[2][-30:-2].strip()
+        enm = text[3].strip()
+        noenm = text[4].strip()
+        lnm = text[5].strip()
+        nolnm = text[6].strip()
+        mn = text[7].strip()
+        stdev = text[8].strip()
+        
+        data = [ln, noln, float(enm[-6:]), float(noenm[-6:]), float(lnm[-6:]), float(nolnm[-6:]), float(mn[-6:]), float(stdev[-6:])]
+        
+        SNOTEL[name[7:]] = data
 
+        text = []
+        station +=1
+        
+#print(SNOTEL.get('name = stevens_pass'))
+print(SNOTEL)
 
+#%% Using SNOTEL.dict to calculate how many standard deviations away the measurements are
 
+#standard deviations can be found in SNOTEL.get
+
+def stdevsAway(key):
+
+    print(key+"'s standard deviation:", SNOTEL.get(str(key))[-1]) # get the standard deviation
+    
+    # OLR la niña mean:
+    print("OLR la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[4])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean") # subtract OLR LAN mean from the mean and divide by std dev
+    
+    # OLR el niño mean:
+    print("OLR el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[2])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+    
+    # la niña mean:
+    print("la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[5])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+    
+    # el niño mean:
+    print("el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[3])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+
+stdevsAway('blewitt_pass')
+print('\n')
+stdevsAway('corral_pass')
+print('\n')
+stdevsAway('cougar_mountain')
+print('\n')
+stdevsAway('fish_lake')
+print('\n')
+stdevsAway('harts_pass')
+print('\n')
+stdevsAway('lyman_lake')
+print('\n')
+stdevsAway('olallie_meadows')
+print('\n')
+stdevsAway('park_creek')
+print('\n')
+stdevsAway('pope_ridge')
+print('\n')
+stdevsAway('potato_hill')
+print('\n')
+stdevsAway('rainy_pass')
+print('\n')
+stdevsAway('spencer_meadow')
+print('\n')
+stdevsAway('stampede_pass')
+print('\n')
+stdevsAway('surprise_lakes')
+print('\n')
+stdevsAway('white_pass')
+
+#%%
 """
+name = 'cougar_mountain'
+ln = [1989, 1999, 2000, 2011, 2021]
+noln = [1985, 1996, 2001, 2008, 2012]
+enm = 8.1800
+noenm = 7.7833
+lnm = 23.0400
+nolnm = 24.7000
+mn = 15.9333
+stdev = 10.7980
+
+key = name
+data = [enm, noenm, lnm, nolnm, mn, stdev]
+
+SNOTEL[str(key)] = str(data)
+
 % usage: [enm,noenm,lnm,nolnm,mn,stdev,ret,yr1] = tseries('name_of_site') 
 % enm =  olr el nino mean
 % noenm = non-OLR el nino mean
@@ -71,7 +157,9 @@ lnm = 41.5800
 nolnm = 31.6600
 mn = 33.4024
 stdev = 9.5579
-
+SNOTEL = {'blewitt_pass': [[1989, 1999, 2000, 2011, 2021], [1985, 1996, 2001, 2008, 2012], 13.1600, 10.0333, 15.9800, 15.9800, 13.2200, 5.5312],
+          'corral_pass': [[1989, 1999, 2000, 2011, 2021], [1985, 1996, 2001, 2008, 2012], 8.81800, 7.7833, 23.0400, 24.7000, 15.9333, 10.7980],
+          'cougar_mountain': }
 name = cougar_mountain
 ln = [1989, 1999, 2000, 2011, 2021]
 noln = [1985, 1996, 2001, 2008, 2012]
@@ -237,20 +325,15 @@ stdev = 7.4027
   # after running allsite 
 """
 obs_mean = 45.8389
-
-
 p = 0.9800
-
-
 sig95 = 45.2068   26.2211
 """
 #%% results from OLR La Nina[obs_mean,p,sig95] = boot(yr,all,[1985 1996 2001 2008 2012])
 """
 obs_mean = 38.2387
-
-
 p = 0.6990
-
-
 sig95 = 44.5200   26.8474
 """
+#%%
+
+
