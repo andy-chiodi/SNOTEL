@@ -1,0 +1,55 @@
+﻿Summer 2021 Lab Notebook
+Sarah Kilpatrick
+
+
+This notebook serves as a point of reference for any and all work related to the University of Washington’s CICOES internship led by Dr. Andy Chiodi. Our work is contextualized by work Dr. Chiodi first began five years ago, which can be found in this github repository. Dr. Chiodi used MATLAB to understand information from NOAA Snow Data Stations throughout the Washington state portion of the Cascade Mountains in order to study linkages between OLR La Niña years and snowpack variability in the Pacific Northwest.
+
+
+Relevant Papers
+* a poster presented previously on the La Nina-Washington snowpack results 
+* a paper on the OLR El Nino/La Nina seasonal weather association 
+* a paper suggesting sub-seasonal (timescale af about a week) influence from the tropical Pacific to N. America 
+* a paper describing sub-seasonal easterly wind surges in the trop. Pac. and their role in driving La Nina events 
+
+
+June 21 - June 25, Week 1
+
+
+This first week was spent as an introduction to Dr. Chiodi’s work and orienting intern Sarah Kilpatrick as to where he left off. The GitHub repository hyperlinked above included the data in .txt and .dat format for 19 SNOTEL stations updated as of 2016. It also included useful MATLAB files such as tseries.m and boot.m. The former takes in .dat files of each station and outputs the El Niño mean, OLR El Niño mean, La Niña mean, OLR La Niña mean, overall mean, and standard deviation. 
+
+
+This data can be found for all 19 stations in a file named ‘SNOTEL_means.txt’. The latter, boot.m, uses the bootstrap method to determine the statistical significance of the composite average. 
+
+
+Throughout this week I used my Mac’s command line and the file ‘stripinfo.py’ to convert all 19 station .txt files into .dat files, updating their data to include the years 2017-2021. The snippet of code below demonstrates how to do that in your own command line.
+>>> python stripinfo.py blewitt_pass.txt
+
+
+All 19 stations can be found at the following links: 
+* Washington State SNOTELs
+* Oregon SNOTELs
+* Interactive Map
+After updating the .dat files, I used Dr. Chiodi’s tseries.m file in MATLAB to generate composite figures of the snow data for each station. The following line illustrates how exactly this would be written in the MATLAB console:
+[enm,noenm,lnm,nolnm,mn,stdev,ret,yr1] = tseries('blewit_pass')
+
+
+
+
+June 28 - July 02, Week 2
+
+
+After updating each .dat file and creating a new figure for each of the 19 stations, I used allsite.m to create a composite figure and save data for the bootstrap method. As found in Dr. Chiodi’s GitHub repository:
+“allsite.m averages the SWE data from the sites listed in it and plots the resulting all-site-averaged time series. This script also saves the averaged data to a .mat file for use in boot.m.”
+
+
+The primary focus of week two was to solidify the idea that there was a narrative to be built around this data. Dr. Chiodi introduced me to the idea that data, and the conclusions we make of them, compel others when they tell a story. Later in the week I learned from Dr. Ed Harrison that this idea was one central to the spirit of research and scientific progress. 
+
+
+The research must tell a story. We revisited the figures created in Week 1 to gain insight into trends related to OLR ENSO years as opposed to other ENSO years. I created the word document SNOTEL_station_figures to compare all 19 figures side-by-side. One thing Dr. Chiodi and I discovered that over 50% of stations measured every single OLR La Niña year as above the station’s mean snow depth.
+
+
+
+
+July 5 - July 9, Week 3
+
+I spent the majority of this week doing two things: setting up Ferret & PyFerret and finding a way to automate a way to select and organize data from the SNOTEL stations. For the latter, I chose to create a Python dictionary because it lends itself well to easily adding new SNOTEL stations.
