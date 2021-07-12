@@ -62,7 +62,19 @@ print(SNOTEL)
 
 #%% Using SNOTEL.dict to calculate how many standard deviations away the measurements are
 
-#standard deviations can be found in SNOTEL.get
+# ALLSITE DATA
+"""
+ln = [1989, 1999, 2000, 2011]
+oln = [1985, 1996, 2001 , 2008, 2012]
+lnm = 46.4289
+otherlnm = 38.2387
+enm = 32.3248
+otherenm = 29.1009
+mn = 35.6793
+stdev = 10.3890
+
+"""
+# standard deviations can be found in SNOTEL.get
 
 def stdevsAway(key):
 
