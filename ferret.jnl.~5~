@@ -1,0 +1,33 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Darwin 19.6.0 - 10/13/20
+ ! 16-Jul-21 14:25     
+
+set mode verify
+go topo_wnotes.jnl
+plot/ov/vs/sym=circfill/size=10/color=red/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=2/color=orange/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=2/color=purple/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=.25/color=blue/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=.1/color=orange/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 238.04 ,46.27
+can da/all
+can va/all
+go topo_wnotes.jnl
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 238.49 ,46.34
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 237.75 ,46.19
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 238.08 ,46.17
+plot/ov/vs/sym=circfill/size=.1/color=LightBlue/nolab 238.24 ,46.09
+frame/format=PDF individual_station_standev.pdf
+frame/format=individual_station_standev.pdf
+frame/format=individual_station_standev.png
+frame/format=individual_station_standev.jpeg
+frile=individual_station_standev.png
+frame/file=individual_station_standev.png
+deactivate ferret
+conda deactivate
+deactivate
+can da/all
+can va/all
+EXIT /PROGRAM

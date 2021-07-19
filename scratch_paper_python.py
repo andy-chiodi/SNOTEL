@@ -104,14 +104,40 @@ def stdevsAway(stations):
         magnitude_comp = float(format(abs((SNOTEL.get(str(i))[-2] - 38.2387)/10.3890), ".4f"))
         magnitudes.append(magnitude_station)
         magnitudec.append(magnitude_comp)
-        #print(magnitude)
-   
+    #print("station magnitudes:", magnitudes)
+    #print("composite magnitudes:", magnitudec)
+    
+    j = 0
+    
+    for i in magnitudec:
+        
+        if i <= 0.25:
+            print(stations[j], "- lightest shade 237,248,251")
+        
+        elif i >= 0.25 and i <= 0.5:
+            print(stations[j], "- second lightest shade 191,211,230")
+            
+        elif i >= 0.5 and i <= 1:
+            print(stations[j], "- third lightest shade 158,188,218")
+        
+        elif i >= 1 and i <= 1.5:
+            print(stations[j], "- third darkest shade 140,150,198")   
+            
+        elif i >= 1.5 and i <= 2.0:
+            print(stations[j], "- second darkest shade 136,86,167")
+            
+        elif i >= 2 and i <= 2.5:
+            print(stations[j], "- darkest shade 129,15,124")
+        
+        j += 1
     plt.xticks(rotation=80)
     
     #stat = plt.bar(values[:-1], magnitudes), plt.axhline(1, linestyle = '--', color = 'red'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation Away From The Stations' Mean")
     com = plt.bar(values[:-1], magnitudec), plt.axhline(1, linestyle = '--', color = 'red'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Composite Standard Deviation Away From The Composite OLR La Niña Mean")
-    return com
     
+    #return stat
+    return com
+
     # OLR la niña mean:
     #print("OLR la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[4])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean") # subtract OLR LAN mean from the mean and divide by std dev
     
@@ -125,7 +151,7 @@ def stdevsAway(stations):
     # el niño mean:
     #print("el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[3])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
     
-stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
 stdevsAway(stations)
 
 #%%
