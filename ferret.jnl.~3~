@@ -1,0 +1,25 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Darwin 19.6.0 - 10/13/20
+ ! 15-Jul-21 17:14     
+
+set mode verify
+go topo_wnotes
+plot/ov/vs/sym=circfill/color=red/size=1/nolab '360-($lon)'
+plot/ov/vs/sym=circfill/color=red/size=1/nolab
+plot/vs/sym=circfill/color=red/size=1/nolab
+can da/all
+can da/all
+can va/all
+define sym wch "lone_pine"
+define sym lat "46.27"
+define sym lon "121.96"
+plot/ov/vs/sym=circfill/color=red/size=2/nolab '360-($lon)' ,($lat)
+can da/all
+can va/all
+go plotpts_wdist.jnl
+go topo_wnotes.jnl
+plot/ov/vs/sym=circfill/size=2/color=red/nolab '360-($lon)' ,($lat)
+plot/ov/vs/sym=circfill/size=2/color=red/nolab 46.27 , 121.96
+plot/ov/vs/sym=circfill/size=10/color=red/nolab 46.27 , 121.96
+go topo_wnotes.jnl

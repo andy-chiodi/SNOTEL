@@ -5,6 +5,18 @@ Created on Thu Jun 24 15:09:17 2021
 
 @author: skilpatrick
 """
+
+#%%
+# is the OLR mean substantially different from the composite mean? 
+# stdev - useful metric to understand this
+# new metric: absolute difference between snow heights
+
+"""
+create map for 2020-2021 year
+	how does this new year compare to the all-year OLR la nina year?
+create one map for each of all-year OLR la nina year average
+create one map for all years total
+"""
 #%%
 
 # are each of the year like the composite mean? if they are then the plot is robust
@@ -50,14 +62,17 @@ for line in lines:
         mn = text[7].strip()
         stdev = text[8].strip()
         
-        data = [ln, noln, float(enm[-6:]), float(noenm[-6:]), float(lnm[-6:]), float(nolnm[-6:]), float(mn[-6:]), float(stdev[-6:])]
+        data = [ln, noln, float(enm[-7:]), float(noenm[-7:]), float(lnm[-7:]), float(nolnm[-7:]), float(mn[-7:]), float(stdev[-7:])]
         
+        print(data)
         SNOTEL[name[7:]] = data
 
         text = []
         station +=1
         
-#print(SNOTEL.get('name = stevens_pass'))
+        
+        
+#print(SNOTEL.get('fish_lake'))
 print(SNOTEL)
 
 #%% Using SNOTEL.dict to calculate how many standard deviations away the measurements are
@@ -75,52 +90,43 @@ stdev = 10.3890
 
 """
 # standard deviations can be found in SNOTEL.get
+#import numpy as np
+import matplotlib.pyplot as plt
 
-def stdevsAway(key):
-
-    print(key+"'s standard deviation:", SNOTEL.get(str(key))[-1]) # get the standard deviation
+def stdevsAway(stations):
+    magnitudes = []
+    magnitudec = []
+    values = list(SNOTEL.keys())
+    #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
+    for i in stations:
+        #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
+        magnitude_station = float(format(abs((SNOTEL.get(str(i))[-2] - SNOTEL.get(str(i))[4])/SNOTEL.get(str(i))[-1]), ".4f"))
+        magnitude_comp = float(format(abs((SNOTEL.get(str(i))[-2] - 38.2387)/10.3890), ".4f"))
+        magnitudes.append(magnitude_station)
+        magnitudec.append(magnitude_comp)
+        #print(magnitude)
+   
+    plt.xticks(rotation=80)
+    
+    #stat = plt.bar(values[:-1], magnitudes), plt.axhline(1, linestyle = '--', color = 'red'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation Away From The Stations' Mean")
+    com = plt.bar(values[:-1], magnitudec), plt.axhline(1, linestyle = '--', color = 'red'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Composite Standard Deviation Away From The Composite OLR La Niña Mean")
+    return com
     
     # OLR la niña mean:
-    print("OLR la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[4])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean") # subtract OLR LAN mean from the mean and divide by std dev
+    #print("OLR la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[4])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean") # subtract OLR LAN mean from the mean and divide by std dev
+    
     
     # OLR el niño mean:
-    print("OLR el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[2])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+    #print("OLR el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[2])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
     
     # la niña mean:
-    print("la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[5])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+    #print("la niña mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[5])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
     
     # el niño mean:
-    print("el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[3])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
-
-stdevsAway('blewitt_pass')
-print('\n')
-stdevsAway('corral_pass')
-print('\n')
-stdevsAway('cougar_mountain')
-print('\n')
-stdevsAway('fish_lake')
-print('\n')
-stdevsAway('harts_pass')
-print('\n')
-stdevsAway('lyman_lake')
-print('\n')
-stdevsAway('olallie_meadows')
-print('\n')
-stdevsAway('park_creek')
-print('\n')
-stdevsAway('pope_ridge')
-print('\n')
-stdevsAway('potato_hill')
-print('\n')
-stdevsAway('rainy_pass')
-print('\n')
-stdevsAway('spencer_meadow')
-print('\n')
-stdevsAway('stampede_pass')
-print('\n')
-stdevsAway('surprise_lakes')
-print('\n')
-stdevsAway('white_pass')
+    #print("el niño mean is", format(abs((SNOTEL.get(str(key))[-2] - SNOTEL.get(str(key))[3])/SNOTEL.get(str(key))[-1]), ".4f"), "standard deviations away from the mean")
+    
+stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+stdevsAway(stations)
 
 #%%
 """

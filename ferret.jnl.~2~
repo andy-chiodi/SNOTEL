@@ -1,0 +1,8 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Darwin 19.6.0 - 10/13/20
+ ! 13-Jul-21 16:07     
+
+set mode verify
+go topo_wnotes.jnl
+use smith_sandwell_from_coastwatch_erdapp.nc

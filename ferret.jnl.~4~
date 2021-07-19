@@ -1,0 +1,7 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Darwin 19.6.0 - 10/13/20
+ ! 16-Jul-21 14:22     
+
+set mode verify
+go plotpts_wdist.jnl
