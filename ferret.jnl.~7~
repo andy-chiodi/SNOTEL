@@ -1,0 +1,15 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Darwin 19.6.0 - 10/13/20
+ ! 19-Jul-21 14:50     
+
+set mode verify
+go topo_wnotes.jnl
+FRAME/FORMAT=pdf ferret_image.pdf
+spwd
+sp pdw
+sp pwd
+sp ls -rlt
+ferret.pdf
+FRAME/FORMAT=png ferret_img.png
+FRAME/FORMAT=gif ferret_img.gif
