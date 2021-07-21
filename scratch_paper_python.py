@@ -5,6 +5,7 @@ Created on Thu Jun 24 15:09:17 2021
 
 @author: skilpatrick
 """
+# include all-station mean for SWE in inches variation bar graph plot (and mean or median, see what works)
 
 #%%
 # is the OLR mean substantially different from the composite mean? 
@@ -34,8 +35,6 @@ with open('spencer_meadow.dat') as f:
 
 #%% SNOTEL dictionary loaded from 'SNOTEL_means.txt'
 import os 
-#import regex as re
-
 path = os.path.abspath('SNOTEL_means.txt')
 #print(path)
 contents = open('SNOTEL_means.txt', 'rt')
@@ -43,7 +42,6 @@ lines = contents.readlines()
 #print(lines[1][-30:-2].strip())
 text = []
 SNOTEL = dict()
-
 station = 0
 for line in lines:
 
@@ -51,34 +49,33 @@ for line in lines:
         text.append(line)
         #print(text)
     if line == '-----------------------------------\n':
-    
         name = text[0].strip()
-        ln = text[1][-30:-2].strip()
-        noln = text[2][-30:-2].strip()
-        enm = text[3].strip()
-        noenm = text[4].strip()
-        lnm = text[5].strip()
-        nolnm = text[6].strip()
-        mn = text[7].strip()
-        stdev = text[8].strip()
+        ln = text[1][-30:-2].strip() 
+        noln = text[2][-30:-2].strip() 
+        enm = text[3].strip() #el niño mean
+        noenm = text[4].strip() #non-OLR el niño mean
+        lnm = text[5].strip() #la niña mean
+        nolnm = text[6].strip() #non-OLR la niña mean
+        mn = text[7].strip() #station's overall mean
+        stdev = text[8].strip() #station's overall standard devation
         
         data = [ln, noln, float(enm[-7:]), float(noenm[-7:]), float(lnm[-7:]), float(nolnm[-7:]), float(mn[-7:]), float(stdev[-7:])]
-        
+              #[0: OLR la niña year list, 
+              #1: non-OLR la niña year list, 
+              #2: OLR el niño mean, 
+              #3: non-OLR el niño mean, 
+              #4: OLR la niña mean, 
+              #5: non-OLR la niña mean, 
+              #6: station's overall mean, 
+              #7: station's overall standard devation]
         print(data)
         SNOTEL[name[7:]] = data
 
         text = []
         station +=1
-        
-        
-        
-#print(SNOTEL.get('fish_lake'))
 print(SNOTEL)
-
 #%% Using SNOTEL.dict to calculate how many standard deviations away the measurements are
-
-# ALLSITE DATA
-"""
+"""# ALLSITE DATA
 ln = [1989, 1999, 2000, 2011]
 oln = [1985, 1996, 2001 , 2008, 2012]
 lnm = 46.4289
@@ -89,90 +86,46 @@ mn = 35.6793
 stdev = 10.3890
 """
 # standard deviations can be found in SNOTEL.get
-
 import matplotlib.pyplot as plt
-
 def plotStdevAway(stations):
     
-    tag = input("By station or By Composite comparison? (enter 'stat' or 'comp') ")
+    print("By station Comparison")
+
+    magnitudes = []
     
-    if tag == 'stat':
-        
-        magnitudes = []
-        
-        values = list(SNOTEL.keys())
-        #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
-        for i in stations:
-        #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
-            magnitude_station = float(format((SNOTEL.get(str(i))[-2] - SNOTEL.get(str(i))[4])/SNOTEL.get(str(i))[-1], ".4f"))
-            magnitudes.append(magnitude_station)
-        
-        #print("station magnitudes:", magnitudes)
-        plt.xticks(rotation=80)
-        stat = plt.bar(values[:-1], magnitudes), plt.axhline(1, linestyle = '--', color = 'red'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
-        return stat
-        
-    if tag == 'comp':
-        
-        magnitudec = []
-        values = list(SNOTEL.keys())
-        #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
-        for i in stations:
-            #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
-            magnitude_comp = float(format((SNOTEL.get(str(i))[-2] - 38.2387)/10.3890, ".4f"))
-            magnitudec.append(magnitude_comp)
-    
-    #print("composite magnitudes:", magnitudec)
+    values = list(SNOTEL.keys())
+    #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
+    for i in stations:
+    #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
+        magnitude_station = float(format((SNOTEL.get(str(i))[4] - SNOTEL.get(str(i))[-2])/SNOTEL.get(str(i))[-1], ".4f"))
+        magnitudes.append(magnitude_station)
     
     plt.xticks(rotation=80)
-    comp = plt.bar(values[:-1], magnitudec), plt.axhline(1, linestyle = '--', color = 'red'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Composite Standard Deviation"+'\n'+"Away From The Composite OLR La Niña Mean")
-    return comp
-    
+    stat = plt.bar(values[:-1], magnitudes), plt.axhline(1, linestyle = '--', color = 'red'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
+    return stat
     
 stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
 plotStdevAway(stations)
-
-#%%
+#%% What colors should the maps get?
 def colorSort(tag):
-    
-    if tag.lower() == 'stat':
         
         magnitudes = []
+        magnitudec = []
         #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
         for i in stations:
         #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
             magnitude_station = float(format((SNOTEL.get(str(i))[-2] - SNOTEL.get(str(i))[4])/SNOTEL.get(str(i))[-1], ".4f"))
             magnitudes.append(magnitude_station)
-    
-        j = 0
-        
-        for i in magnitudes:
-            if i <= -2:
-                print(stations[j], "- darkest orange shade 70,35,2")
-            elif i >= -2 and i <= -1:
-                print(stations[j], "- medium orange shade 95,64,25") 
-            elif i >= -1 and i <= 0:
-                print(stations[j], "-  lightest orange shade 100,88,17")
-            elif i >= 0 and i <= 1:
-                print(stations[j], "-  lightest purple shade 85,85,92")  
-            elif i >= 1 and i <= 2:
-                print(stations[j], "- medium purple shade 60,56,76")   
-            elif i >= 2:
-                print(stations[j], "- darkest purple shade 33,15,53")
-            j += 1
-
-    if tag == 'comp':
-    
-        magnitudec = []
-        #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
-        for i in stations:
-            #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
             magnitude_comp = float(format((SNOTEL.get(str(i))[-2] - 38.2387)/10.3890, ".4f"))
             magnitudec.append(magnitude_comp)
-
-        j = 0
         
-        for i in magnitudec:
+        if tag == 'stat':
+            list = magnitudes
+        if tag == 'comp':
+            list = magnitudec
+           
+        j = 0
+        for i in list:
             if i <= -2:
                 print(stations[j], "- darkest orange shade 70,35,2")
             elif i >= -2 and i <= -1:
@@ -186,52 +139,142 @@ def colorSort(tag):
             elif i >= 2:
                 print(stations[j], "- darkest purple shade 33,15,53")
             j += 1
-        
-
 
 tag = input("By Station or By Composite? (enter 'stat' or 'comp') ")
 colorSort(tag)
-
-#%%
-
+#%% # absolute difference in OLR la Niña Mean SWE in inches
 # OLR la niña mean:
 def olrlnMeanComp():
-    tag = input('Plot, Plot & Text, or Text? (enter 1, 2 or 3) ')
-    
+    tag = int(input('Plot, Plot & Text, or Text? (enter 1, 2 or 3) '))
     if tag == 1:
         values = list(SNOTEL.keys())
         ks = []
         for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[4]
+            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]  # match other lines to this one
             ks.append(k)
-    
         plt.xticks(rotation=80)
-        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.axhline(-6.0, linestyle = '--', color = 'red'), plt.axhline(-12.0, linestyle = '--', color = 'red'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
+        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
         return image
-    
+   
     if tag == 2:
         values = list(SNOTEL.keys())
         ks = []
         for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[4]
+            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches away from the la niña mean") 
-        
-        
         plt.xticks(rotation=80)
-        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.axhline(-6.0, linestyle = '--', color = 'red'), plt.axhline(-12.0, linestyle = '--', color = 'red'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
+        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
         return image
 
     if tag == 3:
         values = list(SNOTEL.keys())
         ks = []
         for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[4]
+            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches away from the la niña mean") 
         
 olrlnMeanComp()
-    
+#%% Compare previous 4 OLR La Niña year means with 2021 OLR LNM
+name = 'blewitt_pass'
+
+def avg(list):
+    return sum(list)/len(list)
+
+#'blewitt_pass'
+four_lnms_bp = [18.6, 18.7, 13.8, 13.8]
+four_mean_bp = avg(four_lnms_bp)
+fifth_lnm_bp = 15.0
+
+#'corral_pass'
+four_lnms_cp = [39.3, 51.0, 37.9, 36.9]
+four_mean_cp = avg(four_lnms_cp)
+fifth_lnm_cp = 42.8
+
+#'cougar_mountain'
+four_lnms_cm = [32.3, 26.8, 20.2, 15.4]
+four_mean_cm = avg(four_lnms_cm)
+fifth_lnm_fl = 20.5
+
+#'fish_lake'
+four_lnms_fl = [30.4, 55.0, 35.2, 30.8]
+four_mean_fl = avg(four_lnms_fl)
+fifth_lnm_fl = 40.9
+
+#'harts_pass'
+four_lnms_hp = [42.9, 69.7, 36.1, 57.3]
+four_mean_hp = avg(four_lnms_hp)
+fifth_lnm_hp = 53.2
+
+#'lone_pine'
+four_lnms_lp = [35.6, 84.5, 51.7, 55.2]
+four_mean_lp = avg(four_lnms_lp)
+fifth_lnm_lp = 47.2
+
+#'lyman_lake'
+four_lnms = [60.1, 88.5, 60.8, 66.8]
+fifth_lnm = 59.2
+
+name = 'olallie_meadows'
+four_lnms = [60.2, 86.6, 56.1, 58.9]
+fifth_lnm = 64.1
+
+name = 'park_creek'
+four_lnms = [49.5, 72.1, 49.5, 48.2]
+fifth_lnm = 56.3
+
+name = 'pigtail_peak'
+four_lnms = [70.0, 76.2, 48.1, 57.8]
+fifth_lnm = 55.5
+
+name = 'pope_ridge'
+four_lnms = [16.1, 28.5, 18.8, 17.9]
+fifth_lnm = 17.8
+
+name = 'potato_hill'
+four_lnms = [28.2, 50.8, 35.4, 37.7]
+fifth_lnm = 39.8
+
+name = 'rainy_pass'
+four_lnms = [34.8, 61.7, 38.5, 44.0]
+fifth_lnm = 40.4
+
+name = 'sheep_canyon'
+four_lnms = [65.6, 77.9, 51.7, 50.2]
+fifth_lnm = 50.9
+
+name = 'spencer_meadow'
+four_lnms = [39.7, 73.2, 49.9, 36.9]
+fifth_lnm = 33.3
+
+name = 'stampede_pass'
+four_lnms = [48.8, 63.0, 50.5, 32.6]
+fifth_lnm = 48.6
+
+name = 'stevens_pass'
+four_lnms = [50.9, 56.7, 42.6, 37.0]
+fifth_lnm = 55.6
+
+name = 'surprise_lakes'
+four_lnms = [61.3, 84.2, 63.8, 57.4]
+fifth_lnm = 52.5
+
+name = 'white_pass'
+four_lnms = [21.1, 35.1, 25.1, 22.5]
+fifth_lnm = 32.5
+
+
+
+
+
+
+
+
+
+
+
+
 #%%
 """
 name = 'cougar_mountain'
