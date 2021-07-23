@@ -180,178 +180,72 @@ olrlnMeanComp()
 #%% Compare previous 4 OLR La Niña year means with 2021 OLR LNM
 import numpy as np
 import matplotlib.pyplot as plt
+from collections import deque
+
 def avg(list):
     return sum(list)/len(list)
 
-def yearlyComp():
+def yearlyComp(tag):
+    
+    tag = int(tag)
     values = list(SNOTEL.keys())
     four_list = []
     fifth_list = []
     comp_list = []
+    total_list = []
+    
+    lists = [[18.6, 18.7, 13.8, 13.8], [39.3, 51.0, 37.9, 36.9], [32.3, 26.8, 20.2, 15.4], 
+             [30.4, 55.0, 35.2, 30.8], [42.9, 69.7, 36.1, 57.3], [35.6, 84.5, 51.7, 55.2], 
+             [60.1, 88.5, 60.8, 66.8], [60.2, 86.6, 56.1, 58.9], [49.5, 72.1, 49.5, 48.2],
+             [70.0, 76.2, 48.1, 57.8], [16.1, 28.5, 18.8, 17.9], [28.2, 50.8, 35.4, 37.7],
+             [34.8, 61.7, 38.5, 44.0], [65.6, 77.9, 51.7, 50.2], [39.7, 73.2, 49.9, 36.9],
+             [48.8, 63.0, 50.5, 32.6], [50.9, 56.7, 42.6, 37.0], [61.3, 84.2, 63.8, 57.4],
+             [21.1, 35.1, 25.1, 22.5]]
+    
+    means = [ 15.0, 42.8, 20.5, 40.9, 53.2, 47.2, 59.2, 64.1, 56.3, 55.5, 17.8, 39.8, 40.4,
+             50.9, 33.3, 48.6, 55.6, 52.5, 32.5]
+    
+    for four_lnms in lists:
+        four_mean = avg(four_lnms)
+        four_list.append(four_mean)
+        
+    for fifth_lnm in means:
+        fifth_list.append(fifth_lnm)
+        
+        i = means.index(fifth_lnm)
+        use= [fifth_lnm]
+        
+        lists[i].extend(use)
+        five_years = lists[i]
+        #print(five_years)
+        
+        comp_list.append(fifth_lnm - four_list[i])
+        
+        total_avg = avg(five_years)
+        total_list.append(total_avg)
 
-    #'blewitt_pass'
-    four_lnms_bp = [18.6, 18.7, 13.8, 13.8]
-    four_mean_bp = avg(four_lnms_bp)
-    four_list.append(four_mean_bp)
-    fifth_lnm_bp = 15.0
-    fifth_list.append(fifth_lnm_bp)
-    comp_list.append(fifth_lnm_bp - four_mean_bp)
+    if tag == 1:
+        plt.xticks(rotation=80)
+        four_image = plt.bar(values[:-1], four_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year")
+        return four_image
     
+    if tag == 2:
+        plt.xticks(rotation=80)
+        fifth_image = plt.bar(values[:-1], fifth_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year")
+        return fifth_image
     
-    #'corral_pass'
-    four_lnms_cp = [39.3, 51.0, 37.9, 36.9]
-    four_mean_cp = avg(four_lnms_cp)
-    four_list.append(four_mean_cp)
-    fifth_lnm_cp = 42.8
-    fifth_list.append(fifth_lnm_cp)
-    comp_list.append(fifth_lnm_cp - four_mean_cp)
+    if tag == 3:
+        plt.xticks(rotation=80)
+        comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
+        return comp_image
     
-    
-    #'cougar_mountain'
-    four_lnms_cm = [32.3, 26.8, 20.2, 15.4]
-    four_mean_cm = avg(four_lnms_cm)
-    four_list.append(four_mean_cm)
-    fifth_lnm_cm = 20.5
-    fifth_list.append(fifth_lnm_cm)
-    comp_list.append(fifth_lnm_cm - four_mean_cm)
-    
-    #'fish_lake'
-    four_lnms_fl = [30.4, 55.0, 35.2, 30.8]
-    four_mean_fl = avg(four_lnms_fl)
-    four_list.append(four_mean_fl)
-    fifth_lnm_fl = 40.9
-    fifth_list.append(fifth_lnm_fl)
-    comp_list.append(fifth_lnm_fl - four_mean_fl)
-    
-    #'harts_pass'
-    four_lnms_hp = [42.9, 69.7, 36.1, 57.3]
-    four_mean_hp = avg(four_lnms_hp)
-    four_list.append(four_mean_hp)
-    fifth_lnm_hp = 53.2
-    fifth_list.append(fifth_lnm_hp)
-    comp_list.append(fifth_lnm_hp - four_mean_hp)
-    
-    #'lone_pine'
-    four_lnms_lp = [35.6, 84.5, 51.7, 55.2]
-    four_mean_lp = avg(four_lnms_lp)
-    four_list.append(four_mean_lp)
-    fifth_lnm_lp = 47.2
-    fifth_list.append(fifth_lnm_lp)
-    comp_list.append(fifth_lnm_lp - four_mean_lp)
-    
-    #'lyman_lake'
-    four_lnms_ll = [60.1, 88.5, 60.8, 66.8]
-    four_mean_ll = avg(four_lnms_ll)
-    four_list.append(four_mean_ll)
-    fifth_lnm_ll = 59.2
-    fifth_list.append(fifth_lnm_ll)
-    comp_list.append(fifth_lnm_ll - four_mean_ll)
-    
-    #'olallie_meadows'
-    four_lnms_om = [60.2, 86.6, 56.1, 58.9]
-    four_mean_om = avg(four_lnms_om)
-    four_list.append(four_mean_om)
-    fifth_lnm_om = 64.1
-    fifth_list.append(fifth_lnm_om)
-    comp_list.append(fifth_lnm_om - four_mean_om)
-    
-    #'park_creek'
-    four_lnms_pc = [49.5, 72.1, 49.5, 48.2]
-    four_mean_pc = avg(four_lnms_pc)
-    four_list.append(four_mean_pc)
-    fifth_lnm_pc = 56.3
-    fifth_list.append(fifth_lnm_pc)
-    comp_list.append(fifth_lnm_pc - four_mean_pc)
-    
-    #'pigtail_peak'
-    four_lnms_pp = [70.0, 76.2, 48.1, 57.8]
-    four_mean_pp = avg(four_lnms_pp)
-    four_list.append(four_mean_pp)
-    fifth_lnm_pp = 55.5
-    fifth_list.append(fifth_lnm_pp)
-    comp_list.append(fifth_lnm_pp - four_mean_pp)
-    
-    #'pope_ridge'
-    four_lnms_pr = [16.1, 28.5, 18.8, 17.9]
-    four_mean_pr = avg(four_lnms_pr)
-    four_list.append(four_mean_pr)
-    fifth_lnm_pr = 17.8
-    fifth_list.append(fifth_lnm_pr)
-    comp_list.append(fifth_lnm_pr - four_mean_pr)
-    
-    #'potato_hill'
-    four_lnms_ph = [28.2, 50.8, 35.4, 37.7]
-    four_mean_ph = avg(four_lnms_ph)
-    four_list.append(four_mean_ph)
-    fifth_lnm_ph = 39.8
-    fifth_list.append(fifth_lnm_ph)
-    comp_list.append(fifth_lnm_ph - four_mean_ph)
-    
-    #'rainy_pass'
-    four_lnms_rp = [34.8, 61.7, 38.5, 44.0]
-    four_mean_rp = avg(four_lnms_rp)
-    four_list.append(four_mean_rp)
-    fifth_lnm_rp = 40.4
-    fifth_list.append(fifth_lnm_rp)
-    comp_list.append(fifth_lnm_rp - four_mean_rp)
-    
-    #'sheep_canyon'
-    four_lnms_sc = [65.6, 77.9, 51.7, 50.2]
-    four_mean_sc = avg(four_lnms_sc)
-    four_list.append(four_mean_sc)
-    fifth_lnm_sc = 50.9
-    fifth_list.append(fifth_lnm_sc)
-    comp_list.append(fifth_lnm_sc - four_mean_sc)
-    
-    #'spencer_meadow'
-    four_lnms_sm = [39.7, 73.2, 49.9, 36.9]
-    four_mean_sm = avg(four_lnms_sm)
-    four_list.append(four_mean_sm)
-    fifth_lnm_sm = 33.3
-    fifth_list.append(fifth_lnm_sm)
-    comp_list.append(fifth_lnm_sm - four_mean_sm)
-    
-    #'stampede_pass'
-    four_lnms_sp = [48.8, 63.0, 50.5, 32.6]
-    four_mean_sp = avg(four_lnms_sp)
-    four_list.append(four_mean_sp)
-    fifth_lnm_sp = 48.6
-    fifth_list.append(fifth_lnm_sp)
-    comp_list.append(fifth_lnm_sp - four_mean_sp)
-    
-    #'stevens_pass'
-    four_lnms_stp = [50.9, 56.7, 42.6, 37.0]
-    four_mean_stp = avg(four_lnms_stp)
-    four_list.append(four_mean_stp)
-    fifth_lnm_stp = 55.6
-    fifth_list.append(fifth_lnm_stp)
-    comp_list.append(fifth_lnm_stp - four_mean_stp)
-    
-    #'surprise_lakes'
-    four_lnms_sl = [61.3, 84.2, 63.8, 57.4]
-    four_mean_sl = avg(four_lnms_sl)
-    four_list.append(four_mean_sl)
-    fifth_lnm_sl = 52.5
-    fifth_list.append(fifth_lnm_sl)
-    comp_list.append(fifth_lnm_sl - four_mean_sl)
-    
-    #'white_pass'
-    four_lnms_wp = [21.1, 35.1, 25.1, 22.5]
-    four_mean_wp = avg(four_lnms_wp)
-    four_list.append(four_mean_wp)
-    fifth_lnm_wp = 32.5
-    fifth_list.append(fifth_lnm_wp)
-    comp_list.append(fifth_lnm_wp - four_mean_wp)
-    
-    plt.xticks(rotation=80)
-    
-    #four_image = plt.bar(values[:-1], four_list), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year SWE in Inches")
-    #fifth_image = plt.bar(values[:-1], fifth_list, color = 'gold'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year SWE in Inches")
-    #comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
-    
-    return 
-
-yearlyComp()
+    if tag == 4:
+        plt.xticks(rotation=80)
+        total_image = plt.bar(values[:-1], total_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("All-Year OLR La Niña: [1989, 1999, 2000, 2011, 2021]")
+        return total_image
+        
+tag = input("1. First 4 years OLR La Niña SWE"+'\n'+"2. 2021 OLR La Niña SWE"+'\n'+"3. Change in SWE from first four years to 2021 OLR La Niña SWE"+'\n'+"4. All-year OLR La Niña SWE"+'\n'+"Enter 1, 2, 3 or 4: ")
+yearlyComp(tag)
 #%%
 """
 name = 'cougar_mountain'
