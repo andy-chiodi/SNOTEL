@@ -101,7 +101,7 @@ def plotStdevAway(stations):
         magnitudes.append(magnitude_station)
     
     plt.xticks(rotation=80)
-    stat = plt.bar(values[:-1], magnitudes), plt.axhline(1, linestyle = '--', color = 'red'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
+    stat = plt.bar(values[:-1], magnitudes, color = 'maroon'), plt.axhline(1, linestyle = '-', color = 'black'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
     return stat
     
 stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
@@ -177,104 +177,180 @@ def olrlnMeanComp():
         
 olrlnMeanComp()
 #%% Compare previous 4 OLR La Niña year means with 2021 OLR LNM
-name = 'blewitt_pass'
-
+import numpy as np
+import matplotlib.pyplot as plt
 def avg(list):
     return sum(list)/len(list)
 
-#'blewitt_pass'
-four_lnms_bp = [18.6, 18.7, 13.8, 13.8]
-four_mean_bp = avg(four_lnms_bp)
-fifth_lnm_bp = 15.0
+def yearlyComp():
+    values = list(SNOTEL.keys())
+    four_list = []
+    fifth_list = []
+    comp_list = []
 
-#'corral_pass'
-four_lnms_cp = [39.3, 51.0, 37.9, 36.9]
-four_mean_cp = avg(four_lnms_cp)
-fifth_lnm_cp = 42.8
+    #'blewitt_pass'
+    four_lnms_bp = [18.6, 18.7, 13.8, 13.8]
+    four_mean_bp = avg(four_lnms_bp)
+    four_list.append(four_mean_bp)
+    fifth_lnm_bp = 15.0
+    fifth_list.append(fifth_lnm_bp)
+    comp_list.append(fifth_lnm_bp - four_mean_bp)
+    
+    
+    #'corral_pass'
+    four_lnms_cp = [39.3, 51.0, 37.9, 36.9]
+    four_mean_cp = avg(four_lnms_cp)
+    four_list.append(four_mean_cp)
+    fifth_lnm_cp = 42.8
+    fifth_list.append(fifth_lnm_cp)
+    comp_list.append(fifth_lnm_cp - four_mean_cp)
+    
+    
+    #'cougar_mountain'
+    four_lnms_cm = [32.3, 26.8, 20.2, 15.4]
+    four_mean_cm = avg(four_lnms_cm)
+    four_list.append(four_mean_cm)
+    fifth_lnm_cm = 20.5
+    fifth_list.append(fifth_lnm_cm)
+    comp_list.append(fifth_lnm_cm - four_mean_cm)
+    
+    #'fish_lake'
+    four_lnms_fl = [30.4, 55.0, 35.2, 30.8]
+    four_mean_fl = avg(four_lnms_fl)
+    four_list.append(four_mean_fl)
+    fifth_lnm_fl = 40.9
+    fifth_list.append(fifth_lnm_fl)
+    comp_list.append(fifth_lnm_fl - four_mean_fl)
+    
+    #'harts_pass'
+    four_lnms_hp = [42.9, 69.7, 36.1, 57.3]
+    four_mean_hp = avg(four_lnms_hp)
+    four_list.append(four_mean_hp)
+    fifth_lnm_hp = 53.2
+    fifth_list.append(fifth_lnm_hp)
+    comp_list.append(fifth_lnm_hp - four_mean_hp)
+    
+    #'lone_pine'
+    four_lnms_lp = [35.6, 84.5, 51.7, 55.2]
+    four_mean_lp = avg(four_lnms_lp)
+    four_list.append(four_mean_lp)
+    fifth_lnm_lp = 47.2
+    fifth_list.append(fifth_lnm_lp)
+    comp_list.append(fifth_lnm_lp - four_mean_lp)
+    
+    #'lyman_lake'
+    four_lnms_ll = [60.1, 88.5, 60.8, 66.8]
+    four_mean_ll = avg(four_lnms_ll)
+    four_list.append(four_mean_ll)
+    fifth_lnm_ll = 59.2
+    fifth_list.append(fifth_lnm_ll)
+    comp_list.append(fifth_lnm_ll - four_mean_ll)
+    
+    #'olallie_meadows'
+    four_lnms_om = [60.2, 86.6, 56.1, 58.9]
+    four_mean_om = avg(four_lnms_om)
+    four_list.append(four_mean_om)
+    fifth_lnm_om = 64.1
+    fifth_list.append(fifth_lnm_om)
+    comp_list.append(fifth_lnm_om - four_mean_om)
+    
+    #'park_creek'
+    four_lnms_pc = [49.5, 72.1, 49.5, 48.2]
+    four_mean_pc = avg(four_lnms_pc)
+    four_list.append(four_mean_pc)
+    fifth_lnm_pc = 56.3
+    fifth_list.append(fifth_lnm_pc)
+    comp_list.append(fifth_lnm_pc - four_mean_pc)
+    
+    #'pigtail_peak'
+    four_lnms_pp = [70.0, 76.2, 48.1, 57.8]
+    four_mean_pp = avg(four_lnms_pp)
+    four_list.append(four_mean_pp)
+    fifth_lnm_pp = 55.5
+    fifth_list.append(fifth_lnm_pp)
+    comp_list.append(fifth_lnm_pp - four_mean_pp)
+    
+    #'pope_ridge'
+    four_lnms_pr = [16.1, 28.5, 18.8, 17.9]
+    four_mean_pr = avg(four_lnms_pr)
+    four_list.append(four_mean_pr)
+    fifth_lnm_pr = 17.8
+    fifth_list.append(fifth_lnm_pr)
+    comp_list.append(fifth_lnm_pr - four_mean_pr)
+    
+    #'potato_hill'
+    four_lnms_ph = [28.2, 50.8, 35.4, 37.7]
+    four_mean_ph = avg(four_lnms_ph)
+    four_list.append(four_mean_ph)
+    fifth_lnm_ph = 39.8
+    fifth_list.append(fifth_lnm_ph)
+    comp_list.append(fifth_lnm_ph - four_mean_ph)
+    
+    #'rainy_pass'
+    four_lnms_rp = [34.8, 61.7, 38.5, 44.0]
+    four_mean_rp = avg(four_lnms_rp)
+    four_list.append(four_mean_rp)
+    fifth_lnm_rp = 40.4
+    fifth_list.append(fifth_lnm_rp)
+    comp_list.append(fifth_lnm_rp - four_mean_rp)
+    
+    #'sheep_canyon'
+    four_lnms_sc = [65.6, 77.9, 51.7, 50.2]
+    four_mean_sc = avg(four_lnms_sc)
+    four_list.append(four_mean_sc)
+    fifth_lnm_sc = 50.9
+    fifth_list.append(fifth_lnm_sc)
+    comp_list.append(fifth_lnm_sc - four_mean_sc)
+    
+    #'spencer_meadow'
+    four_lnms_sm = [39.7, 73.2, 49.9, 36.9]
+    four_mean_sm = avg(four_lnms_sm)
+    four_list.append(four_mean_sm)
+    fifth_lnm_sm = 33.3
+    fifth_list.append(fifth_lnm_sm)
+    comp_list.append(fifth_lnm_sm - four_mean_sm)
+    
+    #'stampede_pass'
+    four_lnms_sp = [48.8, 63.0, 50.5, 32.6]
+    four_mean_sp = avg(four_lnms_sp)
+    four_list.append(four_mean_sp)
+    fifth_lnm_sp = 48.6
+    fifth_list.append(fifth_lnm_sp)
+    comp_list.append(fifth_lnm_sp - four_mean_sp)
+    
+    #'stevens_pass'
+    four_lnms_stp = [50.9, 56.7, 42.6, 37.0]
+    four_mean_stp = avg(four_lnms_stp)
+    four_list.append(four_mean_stp)
+    fifth_lnm_stp = 55.6
+    fifth_list.append(fifth_lnm_stp)
+    comp_list.append(fifth_lnm_stp - four_mean_stp)
+    
+    #'surprise_lakes'
+    four_lnms_sl = [61.3, 84.2, 63.8, 57.4]
+    four_mean_sl = avg(four_lnms_sl)
+    four_list.append(four_mean_sl)
+    fifth_lnm_sl = 52.5
+    fifth_list.append(fifth_lnm_sl)
+    comp_list.append(fifth_lnm_sl - four_mean_sl)
+    
+    #'white_pass'
+    four_lnms_wp = [21.1, 35.1, 25.1, 22.5]
+    four_mean_wp = avg(four_lnms_wp)
+    four_list.append(four_mean_wp)
+    fifth_lnm_wp = 32.5
+    fifth_list.append(fifth_lnm_wp)
+    comp_list.append(fifth_lnm_wp - four_mean_wp)
+    
+    plt.xticks(rotation=80)
+    
+    #four_image = plt.bar(values[:-1], four_list, color = 'light blue'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year SWE in Inches")
+    #fifth_image = plt.bar(values[:-1], fifth_list, color = 'gold'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year SWE in Inches")
+    comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
+    
+    return comp_image
 
-#'cougar_mountain'
-four_lnms_cm = [32.3, 26.8, 20.2, 15.4]
-four_mean_cm = avg(four_lnms_cm)
-fifth_lnm_fl = 20.5
-
-#'fish_lake'
-four_lnms_fl = [30.4, 55.0, 35.2, 30.8]
-four_mean_fl = avg(four_lnms_fl)
-fifth_lnm_fl = 40.9
-
-#'harts_pass'
-four_lnms_hp = [42.9, 69.7, 36.1, 57.3]
-four_mean_hp = avg(four_lnms_hp)
-fifth_lnm_hp = 53.2
-
-#'lone_pine'
-four_lnms_lp = [35.6, 84.5, 51.7, 55.2]
-four_mean_lp = avg(four_lnms_lp)
-fifth_lnm_lp = 47.2
-
-#'lyman_lake'
-four_lnms = [60.1, 88.5, 60.8, 66.8]
-fifth_lnm = 59.2
-
-name = 'olallie_meadows'
-four_lnms = [60.2, 86.6, 56.1, 58.9]
-fifth_lnm = 64.1
-
-name = 'park_creek'
-four_lnms = [49.5, 72.1, 49.5, 48.2]
-fifth_lnm = 56.3
-
-name = 'pigtail_peak'
-four_lnms = [70.0, 76.2, 48.1, 57.8]
-fifth_lnm = 55.5
-
-name = 'pope_ridge'
-four_lnms = [16.1, 28.5, 18.8, 17.9]
-fifth_lnm = 17.8
-
-name = 'potato_hill'
-four_lnms = [28.2, 50.8, 35.4, 37.7]
-fifth_lnm = 39.8
-
-name = 'rainy_pass'
-four_lnms = [34.8, 61.7, 38.5, 44.0]
-fifth_lnm = 40.4
-
-name = 'sheep_canyon'
-four_lnms = [65.6, 77.9, 51.7, 50.2]
-fifth_lnm = 50.9
-
-name = 'spencer_meadow'
-four_lnms = [39.7, 73.2, 49.9, 36.9]
-fifth_lnm = 33.3
-
-name = 'stampede_pass'
-four_lnms = [48.8, 63.0, 50.5, 32.6]
-fifth_lnm = 48.6
-
-name = 'stevens_pass'
-four_lnms = [50.9, 56.7, 42.6, 37.0]
-fifth_lnm = 55.6
-
-name = 'surprise_lakes'
-four_lnms = [61.3, 84.2, 63.8, 57.4]
-fifth_lnm = 52.5
-
-name = 'white_pass'
-four_lnms = [21.1, 35.1, 25.1, 22.5]
-fifth_lnm = 32.5
-
-
-
-
-
-
-
-
-
-
-
-
+yearlyComp()
 #%%
 """
 name = 'cougar_mountain'
