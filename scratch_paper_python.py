@@ -100,8 +100,9 @@ def plotStdevAway(stations):
         magnitude_station = float(format((SNOTEL.get(str(i))[4] - SNOTEL.get(str(i))[-2])/SNOTEL.get(str(i))[-1], ".4f"))
         magnitudes.append(magnitude_station)
     
+    
     plt.xticks(rotation=80)
-    stat = plt.bar(values[:-1], magnitudes, color = 'maroon'), plt.axhline(1, linestyle = '-', color = 'black'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
+    stat = plt.bar(values[:-1], magnitudes, color=['blue', 'blue', 'blue', 'blue', 'blue', 'orange', 'blue', 'blue', 'blue', 'blue', 'blue', 'orange', 'blue', 'orange', 'orange', 'blue','blue','orange','blue']), plt.axhline(1, linestyle = '-', color = 'black'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
     return stat
     
 stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
@@ -162,7 +163,7 @@ def olrlnMeanComp():
         for key in values[:-1]:
             k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
             ks.append(k)
-            print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches away from the la niña mean") 
+            print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
         plt.xticks(rotation=80)
         image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
         return image
@@ -173,7 +174,7 @@ def olrlnMeanComp():
         for key in values[:-1]:
             k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
             ks.append(k)
-            print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches away from the la niña mean") 
+            print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
         
 olrlnMeanComp()
 #%% Compare previous 4 OLR La Niña year means with 2021 OLR LNM
@@ -344,11 +345,11 @@ def yearlyComp():
     
     plt.xticks(rotation=80)
     
-    #four_image = plt.bar(values[:-1], four_list, color = 'light blue'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year SWE in Inches")
+    #four_image = plt.bar(values[:-1], four_list), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year SWE in Inches")
     #fifth_image = plt.bar(values[:-1], fifth_list, color = 'gold'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year SWE in Inches")
-    comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
+    #comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
     
-    return comp_image
+    return 
 
 yearlyComp()
 #%%

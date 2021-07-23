@@ -88,7 +88,7 @@ white_pass - third lightest shade 158,188,218
 station-composite-composite
 
 1. blewitt_pass - darkest shade 51,6,49 // 129,15,124 ..
-   plot/ov/vs/sym=circfill/size=.25/color=(51,6,49)/nolab 239.33 ,47.35
+   plot/ov/vs/sym=circfill/size=.5/color=(51,6,49)/nolab 239.33 ,47.35
 
 2. corral_pass - second lightest shade 191,211,230 // 75,83,90 ..
    plot/ov/vs/sym=circfill/size=.5/color=(75, 83, 90)/nolab 238.54 ,47.01
@@ -162,63 +162,68 @@ station-composite-composite
 	look at timeseries graphs to understand why the southern SNOTEL stations 	stuck out in the station-station-station comparison
 
 
+
+yes? set view ul
+yes? frame/form=pdf/file=station_stdev_map.pdf
+
+
 station-station-station
 1. blewitt_pass - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.33 ,47.35
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.33 ,47.35
 
 2. corral_pass - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.54 ,47.01
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.54 ,47.01
 
 3. cougar_mountain - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.33 ,47.27
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.33 ,47.27
 
 4. fish_lake - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.92 ,47.53
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.92 ,47.53
  
 5. harts_pass - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.34 ,48.72
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.34 ,48.72
 
 6. lone_pine - 
-   plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.04 ,46.27
+   plot/ov/vs/sym=circfill/size=.2/color=(95,64,25)/nolab 238.04 ,46.27
 
 7. lyman_lake - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.09 ,48.19
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.09 ,48.19
 
 8. olallie_meadows - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.56 ,47.37
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.56 ,47.37
 
 9. park_creek - 
-   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.08 ,48.44
+   plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.08 ,48.44
 
 10. pigtail_peak - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.61 ,46.62
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.61 ,46.62
     
 11. pope_ridge - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.43 ,47.99
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.43 ,47.99
 
 12. potato_hill - 
-    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.49 ,46.34
+    plot/ov/vs/sym=circfill/size=.2/color=(95,64,25)/nolab 238.49 ,46.34
 
 13. rainy_pass - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.27 ,48.51
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 239.27 ,48.51
 
 14. sheep_canyon - 
-    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 237.75 ,46.19
+    plot/ov/vs/sym=circfill/size=.2/color=(95,64,25)/nolab 237.75 ,46.19
 
 15. spencer_meadow - 
-    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.08 ,46.17
+    plot/ov/vs/sym=circfill/size=.2/color=(95,64,25)/nolab 238.08 ,46.17
 
 16. stampede_pass - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.66 ,47.27 
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.66 ,47.27 
 
 17. stevens_pass - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.91 ,47.74
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.91 ,47.74
 
 18. surprise_lakes - 
-    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.24 ,46.09
+    plot/ov/vs/sym=circfill/size=.2/color=(95,64,25)/nolab 238.24 ,46.09
 
 19. white_pass - 
-    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.62 ,46.64
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.62 ,46.64
 
 
 station-composite-composite

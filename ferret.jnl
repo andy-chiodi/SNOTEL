@@ -1,6 +1,71 @@
  ! NOAA/PMEL TMAP
  ! PyFerret v7.63 (optimized)
  ! Darwin 19.6.0 - 10/13/20
- ! 21-Jul-21 13:30     
+ ! 23-Jul-21 11:20     
 
 set mode verify
+go topo_wnotes.jnl
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.33 ,47.35
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.54 ,47.01
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.33 ,47.27
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.92 ,47.53
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.34 ,48.72
+plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.04 ,46.27
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.09 ,48.1
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.56 ,47.37
+plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.08 ,48.44
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.61 ,46.62
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.43 ,47.99
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.49 ,46.34
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.27 ,48.51
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 237.75 ,46.19
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.08 ,46.17
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.66 ,47.27
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.91 ,47.74
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.24 ,46.09
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.62 ,46.64
+set view ul
+frame/form=pdf/file=station_stdev_map.pdf
+go topo_wnotes.jnl
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.33 ,47.35
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.54 ,47.01
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.33 ,47.27
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.92 ,47.53
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.34 ,48.72
+yes? plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.04 ,46.27
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.09 ,48.1
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.56 ,47.37
+yes? plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.08 ,48.44
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.61 ,46.62
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.43 ,47.99
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.49 ,46.34
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.27 ,48.51
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 237.75 ,46.19
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.08 ,46.17
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.66 ,47.27  
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.91 ,47.74
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.24 ,46.09
+yes?     plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.62 ,46.64
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.33 ,47.35
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.54 ,47.01
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.33 ,47.27
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.92 ,47.53
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.34 ,48.72
+   plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.04 ,46.27
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.09 ,48.19
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.56 ,47.37
+   plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.08 ,48.44
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.61 ,46.62
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.43 ,47.99
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.49 ,46.34
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 239.27 ,48.51
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 237.75 ,46.19
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.08 ,46.17
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.66 ,47.27
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.91 ,47.74
+    plot/ov/vs/sym=circfill/size=.25/color=(95,64,25)/nolab 238.24 ,46.09
+    plot/ov/vs/sym=circfill/size=.25/color=(100,88,17)/nolab 238.62 ,46.64
+    plot/ov/vs/sym=circfill/size=.2/color=(100,88,17)/nolab 238.62 ,46.64
+set view ul
+frame/form=pdf/file=station_stdev_map.pdf
+go topo_wnotes.jnl
