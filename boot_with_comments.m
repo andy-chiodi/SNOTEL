@@ -2,7 +2,8 @@ function [composite_mean,p,sig95,l,ne] = boot_with_comments(year,data,cyrs)
 %usage: [composite_mean,prob,sig95,num_yrs,num_compyrs] = boot_with_comments(year,data,cyrs)
 % where inputs are:
 % 'year' is a vector of years associated with each data value, e.g., [1982 1983 1984 ... 2021]
-% 'data' is the vector of data values for each year
+% 'data' is the vector of data values for each year (SWE for each year for
+% that station)
 % 'cyrs' is a vector containing the names of the years comprising the composite, e.g. [1989 1999 2000 2010 2021]
 %
 % outputs are:

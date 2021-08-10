@@ -92,14 +92,12 @@ def plotStdevAway(stations):
     print("By station Comparison")
 
     magnitudes = []
-    
     values = list(SNOTEL.keys())
-    #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pope_ridge', 'potato_hill', 'rainy_pass', 'spencer_meadow', 'stampede_pass', 'surprise_lakes', 'white_pass']
+    
     for i in stations:
-    #print(i+"'s standard deviation:", SNOTEL.get(str(i))[-1]) # get the standard deviation
+    
         magnitude_station = float(format((SNOTEL.get(str(i))[4] - SNOTEL.get(str(i))[-2])/SNOTEL.get(str(i))[-1], ".4f"))
         magnitudes.append(magnitude_station)
-    
     
     plt.xticks(rotation=80)
     stat = plt.bar(values[:-1], magnitudes, color=['blue', 'blue', 'blue', 'blue', 'blue', 'orange', 'blue', 'blue', 'blue', 'blue', 'blue', 'orange', 'blue', 'orange', 'orange', 'blue','blue','orange','blue']), plt.axhline(1, linestyle = '-', color = 'black'), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Distance in Station Standard Deviations'+'\n'+'from Station OLR La Niña Mean'), plt.title("SNOTEL Stations With OLR La Niña Means > 1 Standard Deviation"+'\n'+"Away From The Stations' Mean")
@@ -150,8 +148,10 @@ def olrlnMeanComp():
     if tag == 1:
         values = list(SNOTEL.keys())
         ks = []
-        for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]  # match other lines to this one
+        print(values[-1])
+        
+        for key in values[-1]:
+            k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]  # match other lines to this one
             ks.append(k)
         plt.xticks(rotation=80)
         image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
@@ -160,8 +160,8 @@ def olrlnMeanComp():
     if tag == 2:
         values = list(SNOTEL.keys())
         ks = []
-        for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
+        for key in values[-1]:
+            k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
         plt.xticks(rotation=80)
@@ -171,16 +171,46 @@ def olrlnMeanComp():
     if tag == 3:
         values = list(SNOTEL.keys())
         ks = []
-        for key in values[:-1]:
-            k = SNOTEL.get(str(key))[5] - SNOTEL.get(str(key))[7]
+        for key in values[-1]:
+            k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
         
 olrlnMeanComp()
 #%% Compare previous 4 OLR La Niña year means with 2021 OLR LNM
+# subract the mean for all years per station
+
+# how robust is the OLR effect for these stations?
+
+#compare the all-year means to the OLR la niña mean (compare OLR La niña mean behavior vs any given year)
+# (olr la nina mean for that station - mean for all years for that station) over all year means at EACH station
+# standard deviations can be found in SNOTEL.get
+
+# which composite averages meet a certain level of statistical significance 
+# use ret from MATLAB tseries function and plot statistical signif
+
+# what are the scales of variability for snowfall?
 import numpy as np
 import matplotlib.pyplot as plt
-from collections import deque
+def olrlnSignal(stations):
+    
+    values = list(SNOTEL.keys())
+    signal_list = []
+    
+    for i in stations:
+        
+        signal = float(format((SNOTEL.get(str(i))[4] - SNOTEL.get(str(i))[-2])))
+        signal_list.append(signal)
+    
+    plt.xticks(rotation=80)
+    plot = plt.bar(values[:-1], signal_list), plt.yticks(np.arange(0, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.title('Distance in all-year composite means'+'\n'+'to the OLR La Niña means'), plt.ylabel("Snow Water Equivalent in Inches")
+    return plot
+   
+stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+olrlnSignal(stations)
+#%%
+import numpy as np
+import matplotlib.pyplot as plt
 
 def avg(list):
     return sum(list)/len(list)
@@ -193,7 +223,10 @@ def yearlyComp(tag):
     fifth_list = []
     comp_list = []
     total_list = []
+    first_map = []
+    second_map = []
     
+    # this list gives us each station's four OLR la niña year means
     lists = [[18.6, 18.7, 13.8, 13.8], [39.3, 51.0, 37.9, 36.9], [32.3, 26.8, 20.2, 15.4], 
              [30.4, 55.0, 35.2, 30.8], [42.9, 69.7, 36.1, 57.3], [35.6, 84.5, 51.7, 55.2], 
              [60.1, 88.5, 60.8, 66.8], [60.2, 86.6, 56.1, 58.9], [49.5, 72.1, 49.5, 48.2],
@@ -202,46 +235,89 @@ def yearlyComp(tag):
              [48.8, 63.0, 50.5, 32.6], [50.9, 56.7, 42.6, 37.0], [61.3, 84.2, 63.8, 57.4],
              [21.1, 35.1, 25.1, 22.5]]
     
+    # this list contains each station's 2021 mean
     means = [ 15.0, 42.8, 20.5, 40.9, 53.2, 47.2, 59.2, 64.1, 56.3, 55.5, 17.8, 39.8, 40.4,
              50.9, 33.3, 48.6, 55.6, 52.5, 32.5]
     
+    # take the average of the four OLR means and add to the list four_list
     for four_lnms in lists:
         four_mean = avg(four_lnms)
         four_list.append(four_mean)
+    
+    # subtract the all-year avg from the four-year OLR avg
+    stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+    count = 0
+    for i in stations:
         
+        first_map_mean = four_list[count] - SNOTEL.get(str(i))[-2]
+        #print('first_map_mean = ', four_list[count], '-', SNOTEL.get(str(i))[-2])
+        first_map.append(first_map_mean)
+        count += 1
+    
+    # add the 2021 la niña mean to a new list
     for fifth_lnm in means:
         fifth_list.append(fifth_lnm)
         
+        # find the station we're looking at with the 2021 mean
         i = means.index(fifth_lnm)
-        use= [fifth_lnm]
+        use = [fifth_lnm]
         
+        # add this mean to the corresponding station's four-year mean list
         lists[i].extend(use)
         five_years = lists[i]
         #print(five_years)
         
+        # add a new value to a new list, where we subtract the four-year average from the 2021 mean
         comp_list.append(fifth_lnm - four_list[i])
         
+        # create a new list containing the average of all five OLR-La Niña years
         total_avg = avg(five_years)
         total_list.append(total_avg)
-
+        
+    # subtract the all-year avg from the 2021 OLR avg
+    stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+    count = 0
+    for i in stations:
+        
+        second_map_mean = fifth_list[count] - SNOTEL.get(str(i))[-2]
+        print('second_map_mean = ', fifth_list[count], '-', SNOTEL.get(str(i))[-2])
+        second_map.append(second_map_mean)
+        count += 1
+        
+    # plot the first four OLR La Niña year SWE measurements (avg of each station's 4 years)
     if tag == 1:
         plt.xticks(rotation=80)
         four_image = plt.bar(values[:-1], four_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year")
         return four_image
+    # plot the 2021 OLR year SWE measurements (direct measurements taken from timeseries graphs)
     if tag == 2:
         plt.xticks(rotation=80)
         fifth_image = plt.bar(values[:-1], fifth_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year")
         return fifth_image
+    # plot the difference between (2021-measurement - 4-year average)
     if tag == 3:
         plt.xticks(rotation=80)
         comp_image = plt.bar(values[:-1], comp_list, color = 'green'), plt.yticks(np.arange(-20, 20, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("Change in SWE in Inches from [1989, 1999, 2000, 2011]-average to 2021")
         return comp_image
-    if tag == 4:
+    # plot the average of all five OLR-La Niña years
+    if tag == 4: #composite anomaly
         plt.xticks(rotation=80)
         total_image = plt.bar(values[:-1], total_list, color = 'green'), plt.yticks(np.arange(0, 80, step=10)), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("All-Year OLR La Niña: [1989, 1999, 2000, 2011, 2021]")
         return total_image
+    # first four OLR years compared to overall average (first four - all year avg)
+    if tag == 5:
+        #print('difference in five-year OLR and All-Year OLR La Niña means', first_map)
+        plt.xticks(rotation=80)
+        total_image = plt.bar(values[:-1], first_map, color = 'blue'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year Composite - All-Year Composite")
+        return total_image
+    # 2021 compared to overall average (2021 - all-year avg)
+    if tag == 6:
+        #print('difference in 2021 OLR and All-Year OLR La Niña means', second_map)
+        plt.xticks(rotation=80)
+        total_image = plt.bar(values[:-1], second_map, color= 'blue'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year - All-Year Composite")
+        return total_image
         
-tag = input("1. First 4 years OLR La Niña SWE"+'\n'+"2. 2021 OLR La Niña SWE"+'\n'+"3. Change in SWE from first four years to 2021 OLR La Niña SWE"+'\n'+"4. All-year OLR La Niña SWE"+'\n'+"Enter 1, 2, 3 or 4: ")
+tag = input("1. First 4 years OLR La Niña SWE"+'\n'+"2. 2021 OLR La Niña SWE"+'\n'+"3. Change in SWE from first four years to 2021 OLR La Niña SWE"+'\n'+"4. All-year OLR La Niña SWE"+'\n'+"5. First 4 OLR La Niña SWE - All-Year Avg"+'\n'+"6. 2021 OLR La Niña SWE - All-Year Avg"+'\n'+"Enter 1, 2, 3, 4, 5, or 6: ")
 yearlyComp(tag)
 #%% results from La Nina [obs_mean,p,sig95] = boot(yr,all,[1989 1999 2000 2011 2021])
   # after running allsite 
