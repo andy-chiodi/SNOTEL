@@ -250,7 +250,7 @@ def yearlyComp(tag):
     for i in stations:
         
         first_map_mean = four_list[count] - SNOTEL.get(str(i))[-2]
-        #print('first_map_mean = ', four_list[count], '-', SNOTEL.get(str(i))[-2])
+        print('first_map_mean = ', four_list[count], '-', SNOTEL.get(str(i))[-2])
         first_map.append(first_map_mean)
         count += 1
     
@@ -308,13 +308,13 @@ def yearlyComp(tag):
     if tag == 5:
         #print('difference in five-year OLR and All-Year OLR La Niña means', first_map)
         plt.xticks(rotation=80)
-        total_image = plt.bar(values[:-1], first_map, color = 'blue'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("1989, 1999, 2000, 2011 OLR La Niña Year Composite - All-Year Composite")
+        total_image = plt.bar(values[:-1], first_map, color = 'purple'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("([1989, 1999, 2000, 2011] OLR La Niña Year Composite) - (All-Year Composite)")
         return total_image
     # 2021 compared to overall average (2021 - all-year avg)
     if tag == 6:
         #print('difference in 2021 OLR and All-Year OLR La Niña means', second_map)
         plt.xticks(rotation=80)
-        total_image = plt.bar(values[:-1], second_map, color= 'blue'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("2021 OLR La Niña Year - All-Year Composite")
+        total_image = plt.bar(values[:-1], second_map, color= 'purple'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("(2021 OLR La Niña Year) - (All-Year Composite)")
         return total_image
         
 tag = input("1. First 4 years OLR La Niña SWE"+'\n'+"2. 2021 OLR La Niña SWE"+'\n'+"3. Change in SWE from first four years to 2021 OLR La Niña SWE"+'\n'+"4. All-year OLR La Niña SWE"+'\n'+"5. First 4 OLR La Niña SWE - All-Year Avg"+'\n'+"6. 2021 OLR La Niña SWE - All-Year Avg"+'\n'+"Enter 1, 2, 3, 4, 5, or 6: ")
