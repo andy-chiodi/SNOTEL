@@ -250,7 +250,7 @@ def yearlyComp(tag):
     for i in stations:
         
         first_map_mean = four_list[count] - SNOTEL.get(str(i))[-2]
-        print('first_map_mean = ', four_list[count], '-', SNOTEL.get(str(i))[-2])
+        #print('first_map_mean = ', four_list[count], '-', SNOTEL.get(str(i))[-2])
         first_map.append(first_map_mean)
         count += 1
     
@@ -273,6 +273,11 @@ def yearlyComp(tag):
         # create a new list containing the average of all five OLR-La Niña years
         total_avg = avg(five_years)
         total_list.append(total_avg)
+    """    
+    comparison_list = []
+    for i in first_map:
+        comparison_list.append(second_map[i])
+    """    
         
     # subtract the all-year avg from the 2021 OLR avg
     stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
@@ -280,7 +285,7 @@ def yearlyComp(tag):
     for i in stations:
         
         second_map_mean = fifth_list[count] - SNOTEL.get(str(i))[-2]
-        print('second_map_mean = ', fifth_list[count], '-', SNOTEL.get(str(i))[-2])
+        #print('second_map_mean = ', fifth_list[count], '-', SNOTEL.get(str(i))[-2])
         second_map.append(second_map_mean)
         count += 1
         
@@ -306,12 +311,50 @@ def yearlyComp(tag):
         return total_image
     # first four OLR years compared to overall average (first four - all year avg)
     if tag == 5:
+        def newColorSort(given_map):
+            #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+        
+            for j in given_map:
+                if j <= 5:
+                    print("- darkest orange shade 70,35,2")
+                elif j >= 5 and j <= 10:
+                    print("- medium orange shade 95,64,25") 
+                elif j >= 10 and j <= 15:
+                    print("- lightest orange shade 100,88,17")
+                elif j >= 15 and j <= 20:
+                    print("- lightest purple shade 85,85,92")  
+                elif j >= 20 and j <= 25:
+                    print("- medium purple shade 60,56,76")   
+                elif j >= 25:
+                    print("- darkest purple shade 33,15,53")
+                j += 1
+
+        newColorSort(first_map)
         #print('difference in five-year OLR and All-Year OLR La Niña means', first_map)
         plt.xticks(rotation=80)
         total_image = plt.bar(values[:-1], first_map, color = 'purple'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("([1989, 1999, 2000, 2011] OLR La Niña Year Composite) - (All-Year Composite)")
         return total_image
     # 2021 compared to overall average (2021 - all-year avg)
     if tag == 6:
+        def newColorSort(given_map):
+            #stations = ['blewitt_pass', 'corral_pass', 'cougar_mountain', 'fish_lake', 'harts_pass', 'lone_pine', 'lyman_lake', 'olallie_meadows', 'park_creek', 'pigtail_peak', 'pope_ridge', 'potato_hill', 'rainy_pass', 'sheep_canyon', 'spencer_meadow', 'stampede_pass', 'stevens_pass','surprise_lakes', 'white_pass']
+        
+            for j in given_map:
+                if j <= 5:
+                    print("- darkest orange shade 70,35,2")
+                elif j >= 5 and j <= 10:
+                    print("- medium orange shade 95,64,25") 
+                elif j >= 10 and j <= 15:
+                    print("- lightest orange shade 100,88,17")
+                elif j >= 15 and j <= 20:
+                    print("- lightest purple shade 85,85,92")  
+                elif j >= 20 and j <= 25:
+                    print("- medium purple shade 60,56,76")   
+                elif j >= 25:
+                    print("- darkest purple shade 33,15,53")
+                j += 1
+
+        newColorSort(second_map)
         #print('difference in 2021 OLR and All-Year OLR La Niña means', second_map)
         plt.xticks(rotation=80)
         total_image = plt.bar(values[:-1], second_map, color= 'purple'), plt.yticks(np.arange(0, 30, step=5)), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("(2021 OLR La Niña Year) - (All-Year Composite)")
@@ -319,6 +362,7 @@ def yearlyComp(tag):
         
 tag = input("1. First 4 years OLR La Niña SWE"+'\n'+"2. 2021 OLR La Niña SWE"+'\n'+"3. Change in SWE from first four years to 2021 OLR La Niña SWE"+'\n'+"4. All-year OLR La Niña SWE"+'\n'+"5. First 4 OLR La Niña SWE - All-Year Avg"+'\n'+"6. 2021 OLR La Niña SWE - All-Year Avg"+'\n'+"Enter 1, 2, 3, 4, 5, or 6: ")
 yearlyComp(tag)
+
 #%% results from La Nina [obs_mean,p,sig95] = boot(yr,all,[1989 1999 2000 2011 2021])
   # after running allsite 
 """
