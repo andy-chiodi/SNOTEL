@@ -143,35 +143,38 @@ tag = input("By Station or By Composite? (enter 'stat' or 'comp') ")
 colorSort(tag)
 #%% # absolute difference in OLR la Niña Mean SWE in inches
 # OLR la niña mean:
+import matplotlib.pyplot as plt
 def olrlnMeanComp():
     tag = int(input('Plot, Plot & Text, or Text? (enter 1, 2 or 3) '))
     if tag == 1:
         values = list(SNOTEL.keys())
         ks = []
-        print(values[-1])
+        print(values)
         
-        for key in values[-1]:
+        for key in values:
+            
             k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]  # match other lines to this one
             ks.append(k)
+        print(ks)
         plt.xticks(rotation=80)
-        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
+        image = plt.bar(values, ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("OLR La Niña SWE - La Niña Mean SWE")
         return image
    
     if tag == 2:
         values = list(SNOTEL.keys())
         ks = []
-        for key in values[-1]:
+        for key in values:
             k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
         plt.xticks(rotation=80)
-        image = plt.bar(values[:-1], ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("SNOTEL Stations OLR La Niña variations from La Niña Mean SWE in Inches")
+        image = plt.bar(values, ks), plt.axhline(0, linestyle = '-', color = 'black'), plt.ylabel('Snow Water Equivalent in Inches'), plt.title("OLR La Niña SWE - La Niña Mean SWE")
         return image
 
     if tag == 3:
         values = list(SNOTEL.keys())
         ks = []
-        for key in values[-1]:
+        for key in values:
             k = SNOTEL.get(str(key))[4] - SNOTEL.get(str(key))[7]
             ks.append(k)
             print(key+"'s OLR la niña mean is", format(k, ".4f"), "inches higher than the la niña mean") 
